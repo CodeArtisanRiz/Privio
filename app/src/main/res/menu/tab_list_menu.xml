@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/add_tab"
+          app:showAsAction="always"
+          android:title="Add Tab"
+          android:icon="@drawable/ic_add_black_24dp" />
+
+    <item android:id="@+id/add_proxy_tab"
+        app:showAsAction="always"
+        android:title="Add Proxy Tab"
+        android:icon="@drawable/incognito" />
+
+    <item android:id="@+id/close_all"
+          app:showAsAction="always"
+          android:title="Close All Tabs"
+          android:icon="@drawable/ic_delete_forever_black_24dp" />
+</menu>

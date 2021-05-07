@@ -1,0 +1,1 @@
+window.location = "https://winkrbr-home.web.app";

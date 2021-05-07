@@ -1,0 +1,19 @@
+<androidx.preference.PreferenceScreen
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory>
+
+        <SwitchPreferenceCompat
+                app:key="location"
+                app:title="Location Access"
+                app:defaultValue="true"/>
+
+        <SwitchPreferenceCompat
+                app:key="cookies"
+                app:title="Accept Cookies"
+                app:defaultValue="true"/>
+
+    </PreferenceCategory>
+
+</androidx.preference.PreferenceScreen>

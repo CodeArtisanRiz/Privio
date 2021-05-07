@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#000000</color>
+    <color name="colorPrimaryDark">#757575</color>
+    <color name="colorAccent">#FF5252</color>
+    <color name="toolBarTextColor">#404244</color>
+    <color name="sample">#FB0303</color>
+    <color name="colorTextPrimary">#212121</color>
+    <color name="colorTextSecondary">#757575</color>
+    <color name="disabled">#808081</color>
+    <color name="enabled">#000000</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorGreen">#4CAF50</color>
+    <color name="colorBlue">#2196F3</color>
+    <color name="colorOrange">#FF9800</color>
+    <color name="colorTab">#333332</color>
+    <color name="colorPhone">#0D796D</color>
+    <color name="smokyWhite">#fafafa</color>
+    <color name="white">#ffffff</color>
+    <color name="lightText">#c9d3f7</color>
+    <color name="hintColor">#b7c1e4</color>
+    <color name="searchBarColor">#0023a1</color>
+    <color name="greenBtnColor">#48ceb9</color>
+    <color name="lightBlue">#e6f2ff</color>
+    <color name="textBlue">#268eff</color>
+    <color name="deepBlue">#425186</color>
+</resources>

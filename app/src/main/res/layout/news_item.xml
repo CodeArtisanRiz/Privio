@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:padding="10dp">
+
+    <com.google.android.material.circularreveal.cardview.CircularRevealCardView
+        android:layout_width="wrap_content"
+        app:cardCornerRadius="8dp"
+        android:layout_height="wrap_content">
+    <ImageView
+        android:id="@+id/urlToImage"
+        android:layout_width="80dp"
+        android:layout_height="80dp" />
+    </com.google.android.material.circularreveal.cardview.CircularRevealCardView>
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:textStyle="bold"
+        android:text=""
+        android:textSize="14sp" />
+
+</LinearLayout>

@@ -1,0 +1,20 @@
+<resources>
+    <!-- SearchEngine Preference -->
+    <string-array name="search_engine_entries">
+        <item>Baidu</item>
+        <item>DuckDuckGo</item>
+        <item>Ecosia</item>
+        <item>Google</item>
+        <item>Qwant</item>
+        <item>Yandex</item>
+    </string-array>
+
+    <string-array name="search_engine_values">
+        <item>baidu</item>
+        <item>duckduckgo</item>
+        <item>ecosia</item>
+        <item>google</item>
+        <item>qwant</item>
+        <item>yandex</item>
+    </string-array>
+</resources>
