@@ -1,2 +1,2 @@
 # WinkBr
- Android Browser with Proxy
+ Android Browser with Proxy.

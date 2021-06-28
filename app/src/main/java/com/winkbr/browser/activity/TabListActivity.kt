@@ -2,6 +2,7 @@ package com.winkbr.browser.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Html
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -83,11 +84,11 @@ class TabListActivity : AppCompatActivity() {
             R.id.close_all -> {
                 val builder = AlertDialog.Builder(this)
                 builder.setTitle("Close all tabs")
-                builder.setPositiveButton("Yes") { _, _ ->
+                builder.setPositiveButton(Html.fromHtml("<font color='#000000'>Yes</font>")) { _, _ ->
                     TabInfo.removeAllTabs()
                     finish()
                 }
-                builder.setNegativeButton("No") { _, _ -> }
+                builder.setNegativeButton(Html.fromHtml("<font color='#000000'>No</font>")) { _, _ -> }
                 val dialog = builder.create()
                 dialog.show()
                 return true

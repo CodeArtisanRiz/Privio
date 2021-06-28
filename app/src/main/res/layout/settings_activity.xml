@@ -22,6 +22,7 @@
                 android:layout_height="?attr/actionBarSize"/>
 
         </com.google.android.material.appbar.AppBarLayout>
+
     <FrameLayout
             android:id="@+id/settings"
             app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
@@ -30,15 +31,39 @@
         android:layout_marginBottom="50dp"/>
 
 
-        <Button
-            android:id="@+id/credits"
-            android:layout_gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
-            android:layout_marginBottom="5dp"
-            android:text="Credits"/>
+<!--        <Button-->
+<!--            android:id="@+id/credits"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginLeft="30dp"-->
+<!--            android:layout_marginRight="30dp"-->
+<!--            android:layout_marginBottom="5dp"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:text="Credits"/>-->
+
+<!--        <Button-->
+<!--            android:id="@+id/clearCache"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginLeft="30dp"-->
+<!--            android:layout_marginRight="30dp"-->
+<!--            android:layout_marginBottom="5dp"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:text="Clear Cache"/>-->
+
+<!--        <Button-->
+<!--            android:id="@+id/clearCookies"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginLeft="30dp"-->
+<!--            android:layout_marginRight="30dp"-->
+<!--            android:layout_marginBottom="5dp"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:text="Clear Cookies"/>-->
+
 
     </LinearLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

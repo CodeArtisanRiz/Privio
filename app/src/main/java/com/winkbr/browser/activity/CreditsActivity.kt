@@ -1,10 +1,11 @@
 package com.winkbr.browser.activity
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
-import com.winkbr.browser.R
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
-
+import com.winkbr.browser.R
 
 
 class CreditsActivity : AppCompatActivity() {
@@ -27,12 +28,12 @@ class CreditsActivity : AppCompatActivity() {
 //            intent.putExtra("license", "Icons made by Freepik from www.flaticon.com is licensed by CC 3.0. Visit them at:\nhttps://www.freepik.com")
 //            startActivity(intent)
 //        }
-//        this.c2 = findViewById(R.id.c2)
-//        this.c2!!.setOnClickListener {
-//            val intent = Intent(this@CreditsActivity, CreditDetailsActivity::class.java)
-//            intent.putExtra("name", "Drone Shot")
-//            intent.putExtra("license", "Picture shot by Drone Photography, Silchar\nVisit them:\nhttps://wwww.facebook.com/dronnephotographysilchar/")
-//            startActivity(intent)
-//        }
+        this.c2 = findViewById(R.id.c2)
+        this.c2!!.setOnClickListener {
+            Toast.makeText(applicationContext,"Loading...",Toast.LENGTH_SHORT).show()
+            val intent = Intent(Intent.ACTION_MAIN).addCategory("CATEGORY_APP_BROWSER")
+//            intent.addCategory(Intent.)
+            startActivity(Intent.createChooser(intent, "Please set launcher settings to ALWAYS"));
+        }
     }
 }

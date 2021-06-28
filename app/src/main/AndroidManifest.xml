@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.winkbr.browser">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -21,27 +22,43 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        android:usesCleartextTraffic="true">
-        <activity android:name=".activity.CreditDetailsActivity"
-            android:theme="@style/Theme.AppCompat.Light" />
-        <activity android:name="com.winkbr.browser.activity.CreditsActivity"
-            android:theme="@style/Theme.AppCompat.Light"/>
+        android:usesCleartextTraffic="true"
+        tools:targetApi="m">
+        <activity android:name=".activity.AcActivity"/>
+        <activity android:name=".activity.AboutActivity" /> <!-- <activity android:name=".activity.CreditDetailsActivity" -->
+        <!-- android:theme="@style/Theme.AppCompat.Light" /> -->
         <activity
-            android:name="com.winkbr.browser.activity.BookmarkActivity"
+            android:name=".activity.CreditsActivity"
             android:theme="@style/Theme.AppCompat.Light" />
         <activity
-            android:name="com.winkbr.browser.activity.SettingsActivity"
+            android:name=".activity.BookmarkActivity"
+            android:theme="@style/Theme.AppCompat.Light" />
+        <activity
+            android:name=".activity.SettingsActivity"
             android:label="@string/title_activity_settings" />
-        <activity android:name="com.winkbr.browser.activity.TabListActivity" />
-        <activity android:name="com.winkbr.browser.activity.DownloadActivity" />
-        <activity android:name="com.winkbr.browser.activity.HistoryActivity" />
-        <activity android:name="com.winkbr.browser.activity.WebViewActivity" />
-        <activity android:name="com.winkbr.browser.activity.NewsActivity" />
-        <activity android:name="com.winkbr.browser.activity.TabActivity">
+        <activity android:name=".activity.TabListActivity" />
+        <activity android:name=".activity.DownloadActivity" />
+        <activity android:name=".activity.HistoryActivity" />
+        <activity android:name=".activity.WebViewActivity" />
+        <activity android:name=".activity.NewsActivity" />
+        <activity android:name=".activity.TabActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter
+                android:autoVerify="true"
+                tools:targetApi="m">
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="http" />
+                <data android:scheme="https" />
             </intent-filter>
         </activity>
     </application>

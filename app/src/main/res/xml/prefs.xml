@@ -1,0 +1,87 @@
+<androidx.preference.PreferenceScreen
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory
+        android:title="General Settings">
+
+        <Preference
+                app:key="default_browser"
+                app:title="Set Default Browser"/>
+
+        <SwitchPreferenceCompat
+            app:key="load_image"
+            app:title="Load Images"
+            android:summary="Enable image loading"
+            app:defaultValue="true"/>
+
+         <SwitchPreferenceCompat
+            app:key="form_data"
+            app:title="Save Form Data"
+            app:defaultValue="true"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="Privacy Settings">
+        <SwitchPreferenceCompat
+            app:key="location"
+            app:title="Location Access"
+            app:defaultValue="true"/>
+
+        <SwitchPreferenceCompat
+            app:key="accept_cookies"
+            app:title="Accept Cookies"
+            app:defaultValue="true"/>
+        <SwitchPreferenceCompat
+            app:key="3rd_party_cookies"
+            app:title="Accept 3rd Party Cookies"
+            app:defaultValue="false"
+            android:dependency="accept_cookies"/>
+
+        <Preference
+            app:key="clear_cookies"
+            app:title="Clear Cookies"
+            android:dependency="accept_cookies"/>
+        <Preference
+            app:key="clear_cache"
+            app:title="Clear Cache"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="Help">
+
+        <Preference
+            app:key="faq"
+            app:title="FAQ"/>
+<!--            <intent android:action="android.intent.action.VIEW"-->
+<!--            android:data="https:google.com" />-->
+<!--        </Preference>-->
+
+        <Preference
+            app:key="report"
+            app:title="Report">
+            <intent android:action="android.intent.action.VIEW"
+                android:data="mailto:support@winkbr.com" />
+        </Preference>
+
+        <Preference
+            app:key="about"
+            app:title="About"/>
+<!--            <intent-->
+<!--                android:action="com.winkbr.browser.activity.AboutActivity"-->
+<!--                android:targetClass="com.winkbr.browser.activity.AboutActivity"-->
+<!--                android:targetPackage="com.winkbr.browser" />-->
+<!--        </Preference>-->
+
+        <Preference
+            app:key="review"
+            app:title="Review">
+            <intent android:action="android.intent.action.VIEW"
+                android:data="https://play.google.com/store/apps/details?id=com.winkbr.browser" />
+        </Preference>
+
+    </PreferenceCategory>
+
+</androidx.preference.PreferenceScreen>

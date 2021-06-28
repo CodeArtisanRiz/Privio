@@ -24,12 +24,14 @@ import com.winkbr.browser.classes.WebViewClient
 import com.winkbr.browser.tabs.TabInfo
 import kotlinx.android.synthetic.main.view_tab.view.*
 
+@Suppress("DEPRECATION")
 class WebView @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : NestedWebView(context, attrs, defStyleAttr) {
 
     lateinit var activity: TabActivity
     var progressBar: ProgressBar? = null
+
 
     init {
         webViewClient = WebViewClient()
@@ -74,9 +76,6 @@ class WebView @JvmOverloads constructor(
     fun loadHome() {
         val preferences = PreferenceManager.getDefaultSharedPreferences(context)
         loadUrl("https://rebrand.ly/winkbrhome")
-//        loadUrl("https://winkrbr-home.web.app")
-//        loadUrl("file:///android_asset/web/index.html")
-
     }
 
 
@@ -117,19 +116,21 @@ class WebView @JvmOverloads constructor(
         val userAgentList = settings.userAgentString.split(" ").toMutableList()
         userAgentList.add(userAgentList.size - 1, "pBrowse")
         val defaultUserAgent = userAgentList.joinToString (separator = " ") { it -> it }
-        var prefUserAgent = preferences.getString("useragent", defaultUserAgent)
+        var prefUserAgent = preferences.getString("user_agent", defaultUserAgent)
         if (prefUserAgent.isNullOrBlank()) prefUserAgent = defaultUserAgent
 
         settings.apply {
             javaScriptEnabled = preferences.getBoolean("javascript", true)
             blockNetworkImage = !preferences.getBoolean("load_image", true)
             useWideViewPort = preferences.getBoolean("viewport", true)
-            saveFormData = preferences.getBoolean("formdata", true)
+            saveFormData = preferences.getBoolean("form_data", true)
             userAgentString = prefUserAgent
             setGeolocationEnabled(preferences.getBoolean("location", true))
+//            builtInZoomControls = preferences.getBoolean("zoom", true)
+//            builtInZoomControls = false
         }
 
-        CookieManager.getInstance().setAcceptCookie(preferences.getBoolean("cookies", true))
+        CookieManager.getInstance().setAcceptCookie(preferences.getBoolean("accept_cookies", true))
         CookieManager.getInstance().setAcceptThirdPartyCookies(this, preferences.getBoolean("3rd_party_cookies", false))
     }
 }

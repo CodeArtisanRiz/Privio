@@ -3,32 +3,45 @@ package com.winkbr.browser.activity
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.app.AlertDialog
+import android.content.ClipboardManager
 import android.content.DialogInterface
 import android.content.Intent
 import android.graphics.Rect
 import android.net.Uri
+import android.net.sip.SipSession
 import android.os.Bundle
 import android.print.PrintAttributes
 import android.print.PrintManager
 import android.text.Html
+import android.util.Log
+import android.util.Patterns
 import android.view.*
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.widget.*
+import android.widget.Toast.makeText
 import androidx.appcompat.app.AppCompatActivity
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.google.android.material.appbar.AppBarLayout
+import com.google.android.material.appbar.AppBarLayout.LayoutParams.*
+import com.google.android.material.appbar.CollapsingToolbarLayout
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import com.squareup.picasso.MemoryPolicy
+import com.squareup.picasso.Picasso
 import com.winkbr.browser.Database
 import com.winkbr.browser.R
 import com.winkbr.browser.classes.Tab
-import com.winkbr.browser.classes.WebViewClient
 import com.winkbr.browser.tabs.TabInfo
+import com.winkbr.browser.tabs.TabInfo.activity
 import kotlinx.android.synthetic.main.activity_tab.*
 import kotlinx.android.synthetic.main.activity_web_view.*
 import kotlinx.android.synthetic.main.view_tab.*
 import kotlinx.android.synthetic.main.view_tab.view.*
 import java.util.*
+import kotlin.math.abs
 
 
 class TabActivity : AppCompatActivity() {
@@ -45,29 +58,56 @@ class TabActivity : AppCompatActivity() {
     var imgForward: ImageView? = null
     var imgReload: ImageView? = null
     var imgShare: ImageView? = null
-    var news_btn : Button? = null
-
+    var bgImage: ImageView? = null
+    var news_btn: Button? = null
+    var appBarLayout: AppBarLayout? = null
 
     @SuppressLint("CutPasteId", "ResourceAsColor")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         Database.initDb(this)
         TabInfo.activity = this
-
         setContentView(R.layout.activity_tab)
-
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayShowTitleEnabled(false)
-
         countButton = findViewById(R.id.tabCount)
+        val collapsingToolbar = findViewById<CollapsingToolbarLayout>(R.id.collapsingToolbar)
+        appBarLayout = findViewById<View>(R.id.appBarLayout) as AppBarLayout?
+        appBarLayout?.isActivated = true
+        appBarLayout?.setExpanded(true, true)
+        val tabIco: TextView = findViewById(R.id.tabCount)
 
+        appBarLayout?.addOnOffsetChangedListener(AppBarLayout.OnOffsetChangedListener { appBarLayout, verticalOffset ->
+            when {
+                abs(verticalOffset) - appBarLayout.totalScrollRange == 0 -> {
+//                  Collapsed
+//                  Toast.makeText(applicationContext,"Collapsed", Toast.LENGTH_SHORT).show()
+                    tabIco.visibility = View.VISIBLE
+                }
+                verticalOffset == 0 -> {
+//                  Expanded
+//                  Toast.makeText(applicationContext,"Expanded", Toast.LENGTH_SHORT).show()
+                    tabIco.visibility = View.INVISIBLE
+                }
+                else -> {
+//                  Idle
+//                  Toast.makeText(applicationContext,"idle", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+        )
+
+        loadImg()
         val extras = intent.extras
         if (extras != null) {
+            val externalUrl: Uri? = intent?.data
             val url = intent.extras!!.getString("query")
-            if (url.toString().startsWith("http")){
+            if (url.toString().startsWith("http")) {
                 TabInfo.addTab(url.toString())
                 intent.removeExtra("query")
+            }
+            else {
+                TabInfo.addTab(externalUrl.toString())
             }
         }
 
@@ -136,15 +176,13 @@ class TabActivity : AppCompatActivity() {
                             }
 //                    Add Tab
                             bottomSheetView.findViewById<View>(R.id.new_tab).setOnClickListener {
-                                when {
-                                    web_view.url.startsWith("https://winkrbr-home.web.app") -> {
-                                        imgBack?.isEnabled = false
-                                    }
-                                    web_view.url.startsWith("http") -> {
-                                        addTab()
-                                    }
+                                addTab()
+                                bottomSheetDialog.dismiss()
+                            }
+//                    New Private Tab
+                            bottomSheetView.findViewById<View>(R.id.new_private_tab).setOnClickListener {
 
-                                }
+                                        addProxyTab()
 
                                 bottomSheetDialog.dismiss()
                             }
@@ -208,7 +246,7 @@ class TabActivity : AppCompatActivity() {
                                                 editor.apply()
                                                 "Bookmark added"
                                             }
-                                            Toast.makeText(
+                                            makeText(
                                                 this@TabActivity,
                                                 message,
                                                 Toast.LENGTH_SHORT
@@ -304,7 +342,7 @@ class TabActivity : AppCompatActivity() {
                                             web_view.isScrollbarFadingEnabled = false
                                             val newUA =
                                                 "Mozilla/5.0 (Macintosh; Intel Mac OS X x.y; rv:42.0) Gecko/20100101 Firefox/42.0"
-                                             web_view.settings.userAgentString = newUA
+                                            web_view.settings.userAgentString = newUA
 
                                             web_view.loadUrl(sourceUrl)
                                             bottomSheetDialog.dismiss()
@@ -358,7 +396,7 @@ class TabActivity : AppCompatActivity() {
                                         TabInfo.currentWebView().goBack()
                                     }
                                     else -> {
-                                        Toast.makeText(
+                                        makeText(
                                             this@TabActivity,
                                             "Homepage",
                                             Toast.LENGTH_SHORT
@@ -375,7 +413,7 @@ class TabActivity : AppCompatActivity() {
                                         TabInfo.currentWebView().goForward()
                                     }
                                     else -> {
-                                        Toast.makeText(
+                                        makeText(
                                             this@TabActivity,
                                             "Homepage",
                                             Toast.LENGTH_SHORT
@@ -393,7 +431,7 @@ class TabActivity : AppCompatActivity() {
                             bottomSheetView.findViewById<View>(R.id.reload).setOnClickListener {
                                 when {
                                     web_view.url.startsWith("https://winkrbr-home.web.app") -> {
-                                        Toast.makeText(
+                                        makeText(
                                             this@TabActivity,
                                             "Homepage",
                                             Toast.LENGTH_SHORT
@@ -474,15 +512,13 @@ class TabActivity : AppCompatActivity() {
                             }
 //                    Add Tab
                             bottomSheetView.findViewById<View>(R.id.new_tab).setOnClickListener {
-                                when {
-                                    web_view.url.startsWith("https://winkrbr-home.web.app") -> {
-                                        imgBack?.isEnabled = false
-                                    }
-                                    web_view.url.startsWith("http") -> {
-                                        addTab()
-                                    }
+                                addTab()
+                                bottomSheetDialog.dismiss()
+                            }
+//                    New Private Tab
+                            bottomSheetView.findViewById<View>(R.id.new_private_tab).setOnClickListener {
 
-                                }
+                                addProxyTab()
 
                                 bottomSheetDialog.dismiss()
                             }
@@ -555,7 +591,7 @@ class TabActivity : AppCompatActivity() {
                                                 editor.apply()
                                                 "Bookmark added"
                                             }
-                                            Toast.makeText(
+                                            makeText(
                                                 this@TabActivity,
                                                 message,
                                                 Toast.LENGTH_SHORT
@@ -735,7 +771,7 @@ class TabActivity : AppCompatActivity() {
                                         TabInfo.currentWebView().goBack()
                                     }
                                     else -> {
-                                        Toast.makeText(
+                                        makeText(
                                             this@TabActivity,
                                             "Homepage",
                                             Toast.LENGTH_SHORT
@@ -752,7 +788,7 @@ class TabActivity : AppCompatActivity() {
                                         TabInfo.currentWebView().goForward()
                                     }
                                     else -> {
-                                        Toast.makeText(
+                                        makeText(
                                             this@TabActivity,
                                             "Homepage",
                                             Toast.LENGTH_SHORT
@@ -770,7 +806,7 @@ class TabActivity : AppCompatActivity() {
                             bottomSheetView.findViewById<View>(R.id.reload).setOnClickListener {
                                 when {
                                     web_view.url.startsWith("https://winkrbr-home.web.app") -> {
-                                        Toast.makeText(
+                                        makeText(
                                             this@TabActivity,
                                             "Homepage",
                                             Toast.LENGTH_SHORT
@@ -854,15 +890,13 @@ class TabActivity : AppCompatActivity() {
                             }
 //                    Add Tab
                             bottomSheetView.findViewById<View>(R.id.new_tab).setOnClickListener {
-                                when {
-                                    web_view.url.startsWith("https://winkrbr-home.web.app") -> {
-                                        imgBack?.isEnabled = false
-                                    }
-                                    web_view.url.startsWith("http") -> {
-                                        addTab()
-                                    }
+                                addTab()
+                                bottomSheetDialog.dismiss()
+                            }
+//                    New Private Tab
+                            bottomSheetView.findViewById<View>(R.id.new_private_tab).setOnClickListener {
 
-                                }
+                                addProxyTab()
 
                                 bottomSheetDialog.dismiss()
                             }
@@ -935,7 +969,7 @@ class TabActivity : AppCompatActivity() {
                                                 editor.apply()
                                                 "Bookmark added"
                                             }
-                                            Toast.makeText(
+                                            makeText(
                                                 this@TabActivity,
                                                 message,
                                                 Toast.LENGTH_SHORT
@@ -1115,7 +1149,7 @@ class TabActivity : AppCompatActivity() {
                                         TabInfo.currentWebView().goBack()
                                     }
                                     else -> {
-                                        Toast.makeText(
+                                        makeText(
                                             this@TabActivity,
                                             "Homepage",
                                             Toast.LENGTH_SHORT
@@ -1132,7 +1166,7 @@ class TabActivity : AppCompatActivity() {
                                         TabInfo.currentWebView().goForward()
                                     }
                                     else -> {
-                                        Toast.makeText(
+                                        makeText(
                                             this@TabActivity,
                                             "Homepage",
                                             Toast.LENGTH_SHORT
@@ -1150,7 +1184,7 @@ class TabActivity : AppCompatActivity() {
                             bottomSheetView.findViewById<View>(R.id.reload).setOnClickListener {
                                 when {
                                     web_view.url.startsWith("https://winkrbr-home.web.app") -> {
-                                        Toast.makeText(
+                                        makeText(
                                             this@TabActivity,
                                             "Homepage",
                                             Toast.LENGTH_SHORT
@@ -1233,15 +1267,13 @@ class TabActivity : AppCompatActivity() {
                             }
 //                    Add Tab
                             bottomSheetView.findViewById<View>(R.id.new_tab).setOnClickListener {
-                                when {
-                                    web_view.url.startsWith("https://winkrbr-home.web.app") -> {
-                                        imgBack?.isEnabled = false
-                                    }
-                                    web_view.url.startsWith("http") -> {
-                                        addTab()
-                                    }
+                                addTab()
+                                bottomSheetDialog.dismiss()
+                            }
+//                    New Private Tab
+                            bottomSheetView.findViewById<View>(R.id.new_private_tab).setOnClickListener {
 
-                                }
+                                addProxyTab()
 
                                 bottomSheetDialog.dismiss()
                             }
@@ -1314,7 +1346,7 @@ class TabActivity : AppCompatActivity() {
                                                 editor.apply()
                                                 "Bookmark added"
                                             }
-                                            Toast.makeText(
+                                            makeText(
                                                 this@TabActivity,
                                                 message,
                                                 Toast.LENGTH_SHORT
@@ -1494,7 +1526,7 @@ class TabActivity : AppCompatActivity() {
                                         TabInfo.currentWebView().goBack()
                                     }
                                     else -> {
-                                        Toast.makeText(
+                                        makeText(
                                             this@TabActivity,
                                             "Homepage",
                                             Toast.LENGTH_SHORT
@@ -1511,7 +1543,7 @@ class TabActivity : AppCompatActivity() {
                                         TabInfo.currentWebView().goForward()
                                     }
                                     else -> {
-                                        Toast.makeText(
+                                        makeText(
                                             this@TabActivity,
                                             "Homepage",
                                             Toast.LENGTH_SHORT
@@ -1529,7 +1561,7 @@ class TabActivity : AppCompatActivity() {
                             bottomSheetView.findViewById<View>(R.id.reload).setOnClickListener {
                                 when {
                                     web_view.url.startsWith("https://winkrbr-home.web.app") -> {
-                                        Toast.makeText(
+                                        makeText(
                                             this@TabActivity,
                                             "Homepage",
                                             Toast.LENGTH_SHORT
@@ -1612,15 +1644,13 @@ class TabActivity : AppCompatActivity() {
                             }
 //                    Add Tab
                             bottomSheetView.findViewById<View>(R.id.new_tab).setOnClickListener {
-                                when {
-                                    web_view.url.startsWith("https://winkrbr-home.web.app") -> {
-                                        imgBack?.isEnabled = false
-                                    }
-                                    web_view.url.startsWith("http") -> {
-                                        addTab()
-                                    }
+                                addTab()
+                                bottomSheetDialog.dismiss()
+                            }
+//                    New Private Tab
+                            bottomSheetView.findViewById<View>(R.id.new_private_tab).setOnClickListener {
 
-                                }
+                                addProxyTab()
 
                                 bottomSheetDialog.dismiss()
                             }
@@ -1693,7 +1723,7 @@ class TabActivity : AppCompatActivity() {
                                                 editor.apply()
                                                 "Bookmark added"
                                             }
-                                            Toast.makeText(
+                                            makeText(
                                                 this@TabActivity,
                                                 message,
                                                 Toast.LENGTH_SHORT
@@ -1873,7 +1903,7 @@ class TabActivity : AppCompatActivity() {
                                         TabInfo.currentWebView().goBack()
                                     }
                                     else -> {
-                                        Toast.makeText(
+                                        makeText(
                                             this@TabActivity,
                                             "Homepage",
                                             Toast.LENGTH_SHORT
@@ -1890,7 +1920,7 @@ class TabActivity : AppCompatActivity() {
                                         TabInfo.currentWebView().goForward()
                                     }
                                     else -> {
-                                        Toast.makeText(
+                                        makeText(
                                             this@TabActivity,
                                             "Homepage",
                                             Toast.LENGTH_SHORT
@@ -1908,7 +1938,7 @@ class TabActivity : AppCompatActivity() {
                             bottomSheetView.findViewById<View>(R.id.reload).setOnClickListener {
                                 when {
                                     web_view.url.startsWith("https://winkrbr-home.web.app") -> {
-                                        Toast.makeText(
+                                        makeText(
                                             this@TabActivity,
                                             "Homepage",
                                             Toast.LENGTH_SHORT
@@ -1992,16 +2022,13 @@ class TabActivity : AppCompatActivity() {
                             }
 //                    Add Tab
                             bottomSheetView.findViewById<View>(R.id.new_tab).setOnClickListener {
-                                when {
-                                    web_view.url.startsWith("https://winkrbr-home.web.app") -> {
-                                        imgBack?.isEnabled = false
+                                addTab()
+                                bottomSheetDialog.dismiss()
+                            }
+//                    New Private Tab
+                            bottomSheetView.findViewById<View>(R.id.new_private_tab).setOnClickListener {
 
-                                    }
-                                    web_view.url.startsWith("http") -> {
-                                        addTab()
-                                    }
-
-                                }
+                                addProxyTab()
 
                                 bottomSheetDialog.dismiss()
                             }
@@ -2071,7 +2098,7 @@ class TabActivity : AppCompatActivity() {
                                                 editor.apply()
                                                 "Bookmark added"
                                             }
-                                            Toast.makeText(
+                                            makeText(
                                                 this@TabActivity,
                                                 message,
                                                 Toast.LENGTH_SHORT
@@ -2089,7 +2116,7 @@ class TabActivity : AppCompatActivity() {
                                     val sharingUrl: String = web_view.url.toString()
                                     when {
                                         web_view.url.startsWith("https://winkrbr-home.web.app") -> {
-                                            Toast.makeText(
+                                            makeText(
                                                 this@TabActivity,
                                                 "Homepage",
                                                 Toast.LENGTH_SHORT
@@ -2110,7 +2137,7 @@ class TabActivity : AppCompatActivity() {
                                 .setOnClickListener {
                                     when {
                                         web_view.url.startsWith("https://winkrbr-home.web.app") -> {
-                                            Toast.makeText(
+                                            makeText(
                                                 this@TabActivity,
                                                 "Homepage",
                                                 Toast.LENGTH_SHORT
@@ -2130,7 +2157,7 @@ class TabActivity : AppCompatActivity() {
                                 when {
 
                                     web_view.url.startsWith("https://winkrbr-home.web.app") -> {
-                                        Toast.makeText(
+                                        makeText(
                                             this@TabActivity,
                                             "Homepage",
                                             Toast.LENGTH_SHORT
@@ -2169,7 +2196,7 @@ class TabActivity : AppCompatActivity() {
                                 .setOnClickListener {
                                     when {
                                         web_view.url.startsWith("https://winkrbr-home.web.app") -> {
-                                            Toast.makeText(
+                                            makeText(
                                                 this@TabActivity,
                                                 "Homepage",
                                                 Toast.LENGTH_SHORT
@@ -2242,7 +2269,7 @@ class TabActivity : AppCompatActivity() {
                                         TabInfo.currentWebView().goBack()
                                     }
                                     else -> {
-                                        Toast.makeText(
+                                        makeText(
                                             this@TabActivity,
                                             "Homepage",
                                             Toast.LENGTH_SHORT
@@ -2259,7 +2286,7 @@ class TabActivity : AppCompatActivity() {
                                         TabInfo.currentWebView().goForward()
                                     }
                                     else -> {
-                                        Toast.makeText(
+                                        makeText(
                                             this@TabActivity,
                                             "Homepage",
                                             Toast.LENGTH_SHORT
@@ -2278,7 +2305,7 @@ class TabActivity : AppCompatActivity() {
                             bottomSheetView.findViewById<View>(R.id.reload).setOnClickListener {
                                 when {
                                     web_view.url.startsWith("https://winkrbr-home.web.app") -> {
-                                        Toast.makeText(
+                                        makeText(
                                             this@TabActivity,
                                             "Homepage",
                                             Toast.LENGTH_SHORT
@@ -2315,7 +2342,7 @@ class TabActivity : AppCompatActivity() {
                                             )
                                         )
                                     } catch (e: Exception) {
-                                        Toast.makeText(
+                                        makeText(
                                             this@TabActivity,
                                             "Install apps to share",
                                             Toast.LENGTH_SHORT
@@ -2335,7 +2362,7 @@ class TabActivity : AppCompatActivity() {
                             return@setOnNavigationItemSelectedListener true
                         }
                         else -> {
-                            Toast.makeText(
+                            makeText(
                                 this@TabActivity,
                                 "neither file nor http",
                                 Toast.LENGTH_SHORT
@@ -2349,7 +2376,7 @@ class TabActivity : AppCompatActivity() {
                 R.id.nav_reload -> {
                     when {
                         web_view.url.startsWith("https://winkrbr-home.web.app") -> {
-                            Toast.makeText(
+                            makeText(
                                 this@TabActivity,
                                 "Homepage",
                                 Toast.LENGTH_SHORT
@@ -2364,8 +2391,9 @@ class TabActivity : AppCompatActivity() {
 
                     return@setOnNavigationItemSelectedListener true
                 }
-                R.id.nav_share -> {
-                    val intent = Intent(this, NewsActivity::class.java)
+                R.id.nav_settings -> {
+//                    settt
+                    val intent = Intent(this, SettingsActivity::class.java)
                     startActivity(intent)
 
                     return@setOnNavigationItemSelectedListener true
@@ -2379,12 +2407,25 @@ class TabActivity : AppCompatActivity() {
         var address: AutoCompleteTextView? = null
         address = findViewById<View>(R.id.address_bar) as AutoCompleteTextView
 
-        address.setOnFocusChangeListener { view, b -> run {
-            if (!view.hasFocus()) {
-                hideKeyboard(view)
-            }
 
-        }}
+        address.setOnFocusChangeListener { view, b ->
+            run {
+                if (view.hasFocus()) {
+                    collapseToolbar()
+//                    disableToolBarScrolling()
+
+
+
+//                    toolbar?.
+
+                } else if (!view.hasFocus()) {
+                    hideKeyboard(view)
+                } else {
+                    makeText(this, "", Toast.LENGTH_SHORT).show()
+                }
+
+            }
+        }
 
         address.setOnEditorActionListener { view, actionId, _ ->
             if (actionId == EditorInfo.IME_ACTION_SEARCH) {
@@ -2398,7 +2439,8 @@ class TabActivity : AppCompatActivity() {
             }
         }
 
-        if (savedInstanceState != null) TabInfo.currentIndex = savedInstanceState.getInt("current_index")
+        if (savedInstanceState != null) TabInfo.currentIndex =
+            savedInstanceState.getInt("current_index")
     }
 
     override fun onResume() {
@@ -2407,7 +2449,8 @@ class TabActivity : AppCompatActivity() {
     }
 
     private fun hideKeyboard(view: View) {
-        val inputMethodManager = getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+        val inputMethodManager =
+            getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
         inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
     }
 
@@ -2461,11 +2504,14 @@ class TabActivity : AppCompatActivity() {
 
     override fun onBackPressed() {
         val webView = TabInfo.currentWebView()
+
+//        expandAppBarLayout(true)
+
+
         if (webView.canGoBack()) {
             webView.goBack()
             refreshForwardButton()
-        }
-        else {
+        } else {
             val dialogClickListener =
                 DialogInterface.OnClickListener { dialog, which ->
                     when (which) {
@@ -2492,6 +2538,7 @@ class TabActivity : AppCompatActivity() {
                 .show()
         }
     }
+
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.tab_menu, menu)
@@ -2535,6 +2582,7 @@ class TabActivity : AppCompatActivity() {
         return super.dispatchTouchEvent(ev)
     }
 
+
     override fun onSaveInstanceState(outState: Bundle) {
         outState.run {
             putInt("current_index", TabInfo.currentIndex)
@@ -2544,10 +2592,48 @@ class TabActivity : AppCompatActivity() {
     }
 
     companion object {
+        fun ep() {
+
+        }
+
         const val PREFERENCES = "PREFERENCES_NAME"
         const val WEB_LINKS = "links"
         const val WEB_TITLE = "title"
         private const val MY_PERMISSION_REQUEST_CODE = 123
     }
+
+    private fun loadImg() {
+        val bgImg = "http://source.unsplash.com/random/320x180"
+        var imgView: ImageView? = null
+        imgView = findViewById(R.id.backgroundImg)
+        Glide.with(this)
+            .load(bgImg)
+            .fitCenter()
+            .centerCrop()
+            .diskCacheStrategy(DiskCacheStrategy.NONE)
+            .skipMemoryCache(true)
+            .into(imgView)
+//        Picasso
+//            .get()
+//            .load(bgImg)
+//            .fit()
+//            .centerCrop()
+//            .memoryPolicy(MemoryPolicy.NO_CACHE, MemoryPolicy.NO_STORE)
+//            .into(imgView)
+    }
+
+    private fun tabCountClick(){
+        val intent = Intent(this, TabListActivity::class.java)
+        startActivity(intent)
+    }
+
+    fun collapseToolbar(){
+        val tabIco: TextView = findViewById(R.id.tabCount)
+        tabIco.visibility = View.VISIBLE
+        appBarLayout = findViewById<View>(R.id.appBarLayout) as AppBarLayout?
+        appBarLayout?.isActivated = true
+        appBarLayout?.setExpanded(false, true)
+    }
+
 
 }
