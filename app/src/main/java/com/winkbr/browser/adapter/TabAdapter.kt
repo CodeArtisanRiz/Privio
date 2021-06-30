@@ -95,40 +95,40 @@ class TabAdapter : RecyclerView.Adapter<TabAdapter.TabViewHolder>() {
                 address.setText("")
                 address.hint = "Search or enter URL"
                 address.isEnabled = true
-                val sslIco: ImageView = (TabInfo.activity as TabActivity).sslIcon
-                sslIco.visibility = View.GONE
-                val noSslIco: ImageView = (TabInfo.activity as TabActivity).noSslIcon
-                noSslIco.visibility = View.GONE
-                val homeIco: ImageView = (TabInfo.activity as TabActivity).homeIcon
-                homeIco.visibility = View.VISIBLE
-                val proxyIco: ImageView = (TabInfo.activity as TabActivity).proxyIcon
-                proxyIco.visibility = View.GONE
+//                val sslIco: ImageView = (TabInfo.activity as TabActivity).sslIcon
+//                sslIco.visibility = View.GONE
+//                val noSslIco: ImageView = (TabInfo.activity as TabActivity).noSslIcon
+//                noSslIco.visibility = View.GONE
+//                val homeIco: ImageView = (TabInfo.activity as TabActivity).homeIcon
+//                homeIco.visibility = View.VISIBLE
+//                val proxyIco: ImageView = (TabInfo.activity as TabActivity).proxyIcon
+//                proxyIco.visibility = View.GONE
             }
             else if (webView.url.startsWith("https://winkrbr-home.web.app")) {
                 address.setText("")
                 address.hint = "Search or enter URL"
                 address.isEnabled = true
-                val sslIco: ImageView = (TabInfo.activity as TabActivity).sslIcon
-                sslIco.visibility = View.GONE
-                val noSslIco: ImageView = (TabInfo.activity as TabActivity).noSslIcon
-                noSslIco.visibility = View.GONE
-                val homeIco: ImageView = (TabInfo.activity as TabActivity).homeIcon
-                homeIco.visibility = View.VISIBLE
-                val proxyIco: ImageView = (TabInfo.activity as TabActivity).proxyIcon
-                proxyIco.visibility = View.GONE
+//                val sslIco: ImageView = (TabInfo.activity as TabActivity).sslIcon
+//                sslIco.visibility = View.GONE
+//                val noSslIco: ImageView = (TabInfo.activity as TabActivity).noSslIcon
+//                noSslIco.visibility = View.GONE
+//                val homeIco: ImageView = (TabInfo.activity as TabActivity).homeIcon
+//                homeIco.visibility = View.VISIBLE
+//                val proxyIco: ImageView = (TabInfo.activity as TabActivity).proxyIcon
+//                proxyIco.visibility = View.GONE
             }
             else if(webView.url.startsWith("http://13.127.225.49/")) {
                 address.setText("")
                 address.hint = "VPN Mode"
                 address.isEnabled = false
-                val sslIco: ImageView = (TabInfo.activity as TabActivity).sslIcon
-                sslIco.visibility = View.GONE
-                val noSslIco: ImageView = (TabInfo.activity as TabActivity).noSslIcon
-                noSslIco.visibility = View.GONE
-                val homeIco: ImageView = (TabInfo.activity as TabActivity).homeIcon
-                homeIco.visibility = View.GONE
-                val proxyIco: ImageView = (TabInfo.activity as TabActivity).proxyIcon
-                proxyIco.visibility = View.VISIBLE
+//                val sslIco: ImageView = (TabInfo.activity as TabActivity).sslIcon
+//                sslIco.visibility = View.GONE
+//                val noSslIco: ImageView = (TabInfo.activity as TabActivity).noSslIcon
+//                noSslIco.visibility = View.GONE
+//                val homeIco: ImageView = (TabInfo.activity as TabActivity).homeIcon
+//                homeIco.visibility = View.GONE
+//                val proxyIco: ImageView = (TabInfo.activity as TabActivity).proxyIcon
+//                proxyIco.visibility = View.VISIBLE
             }
             else if(webView.url.startsWith("https://hczhcz.github.io/2048/20ez/")) {
                 address.setText("")
@@ -140,64 +140,64 @@ class TabAdapter : RecyclerView.Adapter<TabAdapter.TabViewHolder>() {
                 address.setText("")
                 address.hint = "Game Mode"
                 address.isEnabled = false
-                val sslIco: ImageView = (TabInfo.activity as TabActivity).sslIcon
-                sslIco.visibility = View.GONE
-                val noSslIco: ImageView = (TabInfo.activity as TabActivity).noSslIcon
-                noSslIco.visibility = View.GONE
-                val homeIco: ImageView = (TabInfo.activity as TabActivity).homeIcon
-                homeIco.visibility = View.GONE
-                val proxyIco: ImageView = (TabInfo.activity as TabActivity).proxyIcon
-                proxyIco.visibility = View.GONE
+//                val sslIco: ImageView = (TabInfo.activity as TabActivity).sslIcon
+//                sslIco.visibility = View.GONE
+//                val noSslIco: ImageView = (TabInfo.activity as TabActivity).noSslIcon
+//                noSslIco.visibility = View.GONE
+//                val homeIco: ImageView = (TabInfo.activity as TabActivity).homeIcon
+//                homeIco.visibility = View.GONE
+//                val proxyIco: ImageView = (TabInfo.activity as TabActivity).proxyIcon
+//                proxyIco.visibility = View.GONE
             }
             else if(webView.url.startsWith("https://hextris.io")) {
                 address.setText("")
                 address.hint = "Game Mode"
                 address.isEnabled = false
-                val sslIco: ImageView = (TabInfo.activity as TabActivity).sslIcon
-                sslIco.visibility = View.GONE
-                val noSslIco: ImageView = (TabInfo.activity as TabActivity).noSslIcon
-                noSslIco.visibility = View.GONE
-                val homeIco: ImageView = (TabInfo.activity as TabActivity).homeIcon
-                homeIco.visibility = View.GONE
-                val proxyIco: ImageView = (TabInfo.activity as TabActivity).proxyIcon
-                proxyIco.visibility = View.GONE
+//                val sslIco: ImageView = (TabInfo.activity as TabActivity).sslIcon
+//                sslIco.visibility = View.GONE
+//                val noSslIco: ImageView = (TabInfo.activity as TabActivity).noSslIcon
+//                noSslIco.visibility = View.GONE
+//                val homeIco: ImageView = (TabInfo.activity as TabActivity).homeIcon
+//                homeIco.visibility = View.GONE
+//                val proxyIco: ImageView = (TabInfo.activity as TabActivity).proxyIcon
+//                proxyIco.visibility = View.GONE
             }
             else if(webView.url.startsWith("https://nebezb.com/floppybird/")) {
                 address.setText("")
                 address.hint = "Game Mode"
                 address.isEnabled = false
-                val sslIco: ImageView = (TabInfo.activity as TabActivity).sslIcon
-                sslIco.visibility = View.GONE
-                val noSslIco: ImageView = (TabInfo.activity as TabActivity).noSslIcon
-                noSslIco.visibility = View.GONE
-                val homeIco: ImageView = (TabInfo.activity as TabActivity).homeIcon
-                homeIco.visibility = View.GONE
-                val proxyIco: ImageView = (TabInfo.activity as TabActivity).proxyIcon
-                proxyIco.visibility = View.GONE
+//                val sslIco: ImageView = (TabInfo.activity as TabActivity).sslIcon
+//                sslIco.visibility = View.GONE
+//                val noSslIco: ImageView = (TabInfo.activity as TabActivity).noSslIcon
+//                noSslIco.visibility = View.GONE
+//                val homeIco: ImageView = (TabInfo.activity as TabActivity).homeIcon
+//                homeIco.visibility = View.GONE
+//                val proxyIco: ImageView = (TabInfo.activity as TabActivity).proxyIcon
+//                proxyIco.visibility = View.GONE
             }
             else if(webView.url.startsWith("https")) {
                 address.setText(webView.url.toString())
                 address.isEnabled = true
-                val sslIco: ImageView = (TabInfo.activity as TabActivity).sslIcon
-                sslIco.visibility = View.VISIBLE
-                val noSslIco: ImageView = (TabInfo.activity as TabActivity).noSslIcon
-                noSslIco.visibility = View.GONE
-                val homeIco: ImageView = (TabInfo.activity as TabActivity).homeIcon
-                homeIco.visibility = View.GONE
-                val proxyIco: ImageView = (TabInfo.activity as TabActivity).proxyIcon
-                proxyIco.visibility = View.GONE
+//                val sslIco: ImageView = (TabInfo.activity as TabActivity).sslIcon
+//                sslIco.visibility = View.VISIBLE
+//                val noSslIco: ImageView = (TabInfo.activity as TabActivity).noSslIcon
+//                noSslIco.visibility = View.GONE
+//                val homeIco: ImageView = (TabInfo.activity as TabActivity).homeIcon
+//                homeIco.visibility = View.GONE
+//                val proxyIco: ImageView = (TabInfo.activity as TabActivity).proxyIcon
+//                proxyIco.visibility = View.GONE
             }
             else if(webView.url.startsWith("http")) {
                 address.setText(webView.url.toString())
                 address.isEnabled = true
-                val sslIco: ImageView = (TabInfo.activity as TabActivity).sslIcon
-                sslIco.visibility = View.GONE
-                val noSslIco: ImageView = (TabInfo.activity as TabActivity).noSslIcon
-                noSslIco.visibility = View.VISIBLE
-                val homeIco: ImageView = (TabInfo.activity as TabActivity).homeIcon
-                homeIco.visibility = View.GONE
-                val proxyIco: ImageView = (TabInfo.activity as TabActivity).proxyIcon
-                proxyIco.visibility = View.GONE
+//                val sslIco: ImageView = (TabInfo.activity as TabActivity).sslIcon
+//                sslIco.visibility = View.GONE
+//                val noSslIco: ImageView = (TabInfo.activity as TabActivity).noSslIcon
+//                noSslIco.visibility = View.VISIBLE
+//                val homeIco: ImageView = (TabInfo.activity as TabActivity).homeIcon
+//                homeIco.visibility = View.GONE
+//                val proxyIco: ImageView = (TabInfo.activity as TabActivity).proxyIcon
+//                proxyIco.visibility = View.GONE
             }
 
 

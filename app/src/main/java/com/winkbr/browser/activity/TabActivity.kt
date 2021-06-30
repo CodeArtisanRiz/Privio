@@ -76,6 +76,7 @@ class TabActivity : AppCompatActivity() {
         appBarLayout?.isActivated = true
         appBarLayout?.setExpanded(true, true)
         val tabIco: TextView = findViewById(R.id.tabCount)
+        val statusIco: ImageView = findViewById(R.id.statusIcon)
 
         appBarLayout?.addOnOffsetChangedListener(AppBarLayout.OnOffsetChangedListener { appBarLayout, verticalOffset ->
             when {
@@ -83,11 +84,13 @@ class TabActivity : AppCompatActivity() {
 //                  Collapsed
 //                  Toast.makeText(applicationContext,"Collapsed", Toast.LENGTH_SHORT).show()
                     tabIco.visibility = View.VISIBLE
+                    statusIco.visibility = View.VISIBLE
                 }
                 verticalOffset == 0 -> {
 //                  Expanded
 //                  Toast.makeText(applicationContext,"Expanded", Toast.LENGTH_SHORT).show()
                     tabIco.visibility = View.INVISIBLE
+                    statusIco.visibility = View.INVISIBLE
                 }
                 else -> {
 //                  Idle
@@ -2630,6 +2633,9 @@ class TabActivity : AppCompatActivity() {
     fun collapseToolbar(){
         val tabIco: TextView = findViewById(R.id.tabCount)
         tabIco.visibility = View.VISIBLE
+        val statusIco: ImageView = findViewById(R.id.statusIcon)
+        statusIco.visibility = View.VISIBLE
+
         appBarLayout = findViewById<View>(R.id.appBarLayout) as AppBarLayout?
         appBarLayout?.isActivated = true
         appBarLayout?.setExpanded(false, true)

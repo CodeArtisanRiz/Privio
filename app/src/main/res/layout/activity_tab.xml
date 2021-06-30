@@ -35,54 +35,57 @@
                 android:layout_gravity="bottom"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:gravity="center"
                 app:layout_collapseMode="pin">
 
-                <ImageView
-                    android:id="@+id/sslIcon"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:foregroundGravity="center"
-                    android:src="@drawable/ic_lock"
-                    android:tint="#25CA35"
-                    android:visibility="gone" />
+
+
+<!--                <ImageView-->
+<!--                    android:id="@+id/sslIcon"-->
+<!--                    android:layout_width="20dp"-->
+<!--                    android:layout_height="20dp"-->
+<!--                    android:src="@drawable/ic_lock"-->
+<!--                    android:tint="#25CA35"-->
+<!--                    android:visibility="gone" />-->
+
+<!--                <ImageView-->
+<!--                    android:id="@+id/noSslIcon"-->
+<!--                    android:layout_width="20dp"-->
+<!--                    android:layout_height="20dp"-->
+<!--                    android:src="@drawable/no_ssl"-->
+<!--                    android:tint="#4D504E"-->
+<!--                    android:visibility="gone" />-->
+
+<!--                <ImageView-->
+<!--                    android:id="@+id/homeIcon"-->
+<!--                    android:layout_width="25dp"-->
+<!--                    android:layout_height="25dp"-->
+<!--                    android:src="@drawable/ic_home"-->
+<!--                    android:tint="#4D504E"-->
+<!--                    android:visibility="gone" />-->
+
+<!--                <ImageView-->
+<!--                    android:id="@+id/proxyIcon"-->
+<!--                    android:layout_width="25dp"-->
+<!--                    android:layout_height="25dp"-->
+<!--                    android:paddingEnd="5dp"-->
+<!--                    android:src="@drawable/incognito"-->
+<!--                    android:tint="#4D504E"-->
+<!--                    android:visibility="gone"-->
+<!--                    tools:ignore="RtlSymmetry" />-->
+
+<!--                <Space-->
+<!--                    android:layout_width="35dp"-->
+<!--                    android:layout_height="wrap_content"/>-->
 
                 <ImageView
-                    android:id="@+id/noSslIcon"
-                    android:layout_width="20dp"
+                    android:id="@+id/statusIcon"
+                    android:layout_width="30dp"
                     android:layout_height="20dp"
-                    android:foregroundGravity="center"
-                    android:src="@drawable/no_ssl"
-                    android:tint="#4D504E"
-                    android:visibility="gone" />
-
-                <ImageView
-                    android:id="@+id/homeIcon"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:foregroundGravity="center"
+                    android:tint="@color/colorPrimaryDark"
                     android:src="@drawable/ic_home"
-                    android:tint="#4D504E"
-                    android:visibility="gone" />
-
-                <ImageView
-                    android:id="@+id/proxyIcon"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:foregroundGravity="center"
-                    android:paddingEnd="5dp"
-                    android:src="@drawable/incognito"
-                    android:tint="#4D504E"
-                    android:visibility="gone"
-                    tools:ignore="RtlSymmetry" />
-
-                <Space
-                    android:layout_width="20dp"
-                    android:layout_height="wrap_content"/>
-
+                    android:visibility="invisible"
+                    />
                 <AutoCompleteTextView
-
-
                     android:id="@+id/address_bar"
                     android:layout_width="match_parent"
                     android:layout_height="35dp"
@@ -99,23 +102,17 @@
                     android:textColorHint="@color/colorPrimary"
                     android:textSize="16sp" />
 
-<!--                <Space-->
-<!--                    android:layout_width="5dp"-->
-<!--                    android:layout_height="wrap_content"/>-->
-
 
                 <TextView
-                    android:visibility="gone"
+                    android:visibility="invisible"
                     android:id="@+id/tabCount"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:background="@drawable/count_frame"
-                    android:clickable="true"
                     android:text="@string/default_tab_value"
                     android:textColor="@color/black"
                     android:textAlignment="center"
-                    android:textStyle="bold"
-                    android:focusable="true" />
+                    android:textStyle="bold"/>
 
             </androidx.appcompat.widget.Toolbar>
         </com.google.android.material.appbar.CollapsingToolbarLayout>

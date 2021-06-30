@@ -53,14 +53,13 @@ class TabListActivity : AppCompatActivity() {
                 val address: AutoCompleteTextView = (TabInfo.activity as TabActivity).address_bar
                 address.setText("")
                 address.hint = "Search or enter URL"
-                val sslIco: ImageView = (TabInfo.activity as TabActivity).sslIcon
-                sslIco.visibility = View.GONE
-                val noSslIco: ImageView = (TabInfo.activity as TabActivity).noSslIcon
-                noSslIco.visibility = View.GONE
-                val homeIco: ImageView = (TabInfo.activity as TabActivity).homeIcon
-                homeIco.visibility = View.VISIBLE
-                val proxyIco: ImageView = (TabInfo.activity as TabActivity).proxyIcon
-                proxyIco.visibility = View.GONE
+
+//                val noSslIco: ImageView = (TabInfo.activity as TabActivity).noSslIcon
+//                noSslIco.visibility = View.GONE
+//                val homeIco: ImageView = (TabInfo.activity as TabActivity).homeIcon
+//                homeIco.visibility = View.VISIBLE
+//                val proxyIco: ImageView = (TabInfo.activity as TabActivity).proxyIcon
+//                proxyIco.visibility = View.GONE
                 finish()
                 return true
             }
@@ -70,14 +69,14 @@ class TabListActivity : AppCompatActivity() {
                 address.setText("")
                 address.hint = "VPN Mode"
                 address.isEnabled = false
-                val sslIco: ImageView = (TabInfo.activity as TabActivity).sslIcon
-                sslIco.visibility = View.GONE
-                val noSslIco: ImageView = (TabInfo.activity as TabActivity).noSslIcon
-                noSslIco.visibility = View.GONE
-                val homeIco: ImageView = (TabInfo.activity as TabActivity).homeIcon
-                homeIco.visibility = View.GONE
-                val proxyIco: ImageView = (TabInfo.activity as TabActivity).proxyIcon
-                proxyIco.visibility = View.VISIBLE
+//                val sslIco: ImageView = (TabInfo.activity as TabActivity).sslIcon
+//                sslIco.visibility = View.GONE
+//                val noSslIco: ImageView = (TabInfo.activity as TabActivity).noSslIcon
+//                noSslIco.visibility = View.GONE
+//                val homeIco: ImageView = (TabInfo.activity as TabActivity).homeIcon
+//                homeIco.visibility = View.GONE
+//                val proxyIco: ImageView = (TabInfo.activity as TabActivity).proxyIcon
+//                proxyIco.visibility = View.VISIBLE
                 finish()
                 return true
             }

@@ -117,14 +117,16 @@ class WebViewClient : android.webkit.WebViewClient() {
         if (webView.url.startsWith("file")) {
             address.setText("")
             address.hint = "Search or enter URL"
-            val sslIco: ImageView = (TabInfo.activity as TabActivity).sslIcon
-            sslIco.visibility = View.GONE
-            val noSslIco: ImageView = (TabInfo.activity as TabActivity).noSslIcon
-            noSslIco.visibility = View.GONE
-            val homeIco: ImageView = (TabInfo.activity as TabActivity).homeIcon
-            homeIco.visibility = View.GONE
-            val proxyIco: ImageView = (TabInfo.activity as TabActivity).proxyIcon
-            proxyIco.visibility = View.GONE
+            val statusIcon: ImageView = (TabInfo.activity as TabActivity).statusIcon
+            statusIcon.visibility = View.INVISIBLE
+//            val sslIco: ImageView = (TabInfo.activity as TabActivity).sslIcon
+//            sslIco.visibility = View.GONE
+//            val noSslIco: ImageView = (TabInfo.activity as TabActivity).noSslIcon
+//            noSslIco.visibility = View.GONE
+//            val homeIco: ImageView = (TabInfo.activity as TabActivity).homeIcon
+//            homeIco.visibility = View.GONE
+//            val proxyIco: ImageView = (TabInfo.activity as TabActivity).proxyIcon
+//            proxyIco.visibility = View.GONE
             val btm_nav: BottomNavigationView = (TabInfo.activity as TabActivity).bottom_navigation
 
         }
@@ -132,105 +134,128 @@ class WebViewClient : android.webkit.WebViewClient() {
 
             address.setText("")
             address.hint = "Search or enter URL"
-            val sslIco: ImageView = (TabInfo.activity as TabActivity).sslIcon
-            sslIco.visibility = View.GONE
-            val noSslIco: ImageView = (TabInfo.activity as TabActivity).noSslIcon
-            noSslIco.visibility = View.GONE
-            val homeIco: ImageView = (TabInfo.activity as TabActivity).homeIcon
-            homeIco.visibility = View.GONE
-            val proxyIco: ImageView = (TabInfo.activity as TabActivity).proxyIcon
-            proxyIco.visibility = View.GONE
+            val statusIcon: ImageView = (TabInfo.activity as TabActivity).statusIcon
+            statusIcon.visibility = View.INVISIBLE
+            statusIcon.setImageResource(R.drawable.ic_home)
+//            val sslIco: ImageView = (TabInfo.activity as TabActivity).sslIcon
+//            sslIco.visibility = View.GONE
+//            val noSslIco: ImageView = (TabInfo.activity as TabActivity).noSslIcon
+//            noSslIco.visibility = View.GONE
+//            val homeIco: ImageView = (TabInfo.activity as TabActivity).homeIcon
+//            homeIco.visibility = View.GONE
+//            val proxyIco: ImageView = (TabInfo.activity as TabActivity).proxyIcon
+//            proxyIco.visibility = View.GONE
             val btm_nav: BottomNavigationView = (TabInfo.activity as TabActivity).bottom_navigation
 
         } else if(webView.url.startsWith("http://13.127.225.49/")) {
             address.setText("")
             address.hint= "VPN Mode"
+            val statusIcon: ImageView = (TabInfo.activity as TabActivity).statusIcon
+            statusIcon.setImageResource(R.drawable.incognito)
+            statusIcon.visibility = View.VISIBLE
 
-            val sslIco: ImageView = (TabInfo.activity as TabActivity).sslIcon
-            sslIco.visibility = View.GONE
-            val noSslIco: ImageView = (TabInfo.activity as TabActivity).noSslIcon
-            noSslIco.visibility = View.GONE
-            val homeIco: ImageView = (TabInfo.activity as TabActivity).homeIcon
-            homeIco.visibility = View.GONE
-            val proxyIco: ImageView = (TabInfo.activity as TabActivity).proxyIcon
-            proxyIco.visibility = View.VISIBLE
+//            val sslIco: ImageView = (TabInfo.activity as TabActivity).sslIcon
+//            sslIco.visibility = View.GONE
+//            val noSslIco: ImageView = (TabInfo.activity as TabActivity).noSslIcon
+//            noSslIco.visibility = View.GONE
+//            val homeIco: ImageView = (TabInfo.activity as TabActivity).homeIcon
+//            homeIco.visibility = View.GONE
+//            val proxyIco: ImageView = (TabInfo.activity as TabActivity).proxyIcon
+//            proxyIco.visibility = View.VISIBLE
             val btm_nav: BottomNavigationView = (TabInfo.activity as TabActivity).bottom_navigation
 
         } else if (webView.url.startsWith("https://hczhcz.github.io/2048/20ez/")) {
             address.setText("")
             address.hint = "Game Mode"
-            val sslIco: ImageView = (TabInfo.activity as TabActivity).sslIcon
-            sslIco.visibility = View.GONE
-            val noSslIco: ImageView = (TabInfo.activity as TabActivity).noSslIcon
-            noSslIco.visibility = View.GONE
-            val homeIco: ImageView = (TabInfo.activity as TabActivity).homeIcon
-            homeIco.visibility = View.GONE
-            val proxyIco: ImageView = (TabInfo.activity as TabActivity).proxyIcon
-            proxyIco.visibility = View.GONE
+            val statusIcon: ImageView = (TabInfo.activity as TabActivity).statusIcon
+            statusIcon.setImageResource(R.drawable.ic_game)
+            statusIcon.visibility = View.VISIBLE
+//            val sslIco: ImageView = (TabInfo.activity as TabActivity).sslIcon
+//            sslIco.visibility = View.GONE
+//            val noSslIco: ImageView = (TabInfo.activity as TabActivity).noSslIcon
+//            noSslIco.visibility = View.GONE
+//            val homeIco: ImageView = (TabInfo.activity as TabActivity).homeIcon
+//            homeIco.visibility = View.GONE
+//            val proxyIco: ImageView = (TabInfo.activity as TabActivity).proxyIcon
+//            proxyIco.visibility = View.GONE
             val btm_nav: BottomNavigationView = (TabInfo.activity as TabActivity).bottom_navigation
 
         } else if (webView.url.startsWith("https://doodlecricket.github.io/")) {
             address.setText("")
             address.hint = "Game Mode"
-            val sslIco: ImageView = (TabInfo.activity as TabActivity).sslIcon
-            sslIco.visibility = View.GONE
-            val noSslIco: ImageView = (TabInfo.activity as TabActivity).noSslIcon
-            noSslIco.visibility = View.GONE
-            val homeIco: ImageView = (TabInfo.activity as TabActivity).homeIcon
-            homeIco.visibility = View.GONE
-            val proxyIco: ImageView = (TabInfo.activity as TabActivity).proxyIcon
-            proxyIco.visibility = View.GONE
+            val statusIcon: ImageView = (TabInfo.activity as TabActivity).statusIcon
+            statusIcon.setImageResource(R.drawable.ic_game)
+            statusIcon.visibility = View.VISIBLE
+//            val sslIco: ImageView = (TabInfo.activity as TabActivity).sslIcon
+//            sslIco.visibility = View.GONE
+//            val noSslIco: ImageView = (TabInfo.activity as TabActivity).noSslIcon
+//            noSslIco.visibility = View.GONE
+//            val homeIco: ImageView = (TabInfo.activity as TabActivity).homeIcon
+//            homeIco.visibility = View.GONE
+//            val proxyIco: ImageView = (TabInfo.activity as TabActivity).proxyIcon
+//            proxyIco.visibility = View.GONE
             val btm_nav: BottomNavigationView = (TabInfo.activity as TabActivity).bottom_navigation
 
         } else if (webView.url.startsWith("https://hextris.io")) {
             address.setText("")
             address.hint = "Game Mode"
-            val sslIco: ImageView = (TabInfo.activity as TabActivity).sslIcon
-            sslIco.visibility = View.GONE
-            val noSslIco: ImageView = (TabInfo.activity as TabActivity).noSslIcon
-            noSslIco.visibility = View.GONE
-            val homeIco: ImageView = (TabInfo.activity as TabActivity).homeIcon
-            homeIco.visibility = View.GONE
-            val proxyIco: ImageView = (TabInfo.activity as TabActivity).proxyIcon
-            proxyIco.visibility = View.GONE
+            val statusIcon: ImageView = (TabInfo.activity as TabActivity).statusIcon
+            statusIcon.setImageResource(R.drawable.ic_game)
+            statusIcon.visibility = View.VISIBLE
+//            val sslIco: ImageView = (TabInfo.activity as TabActivity).sslIcon
+//            sslIco.visibility = View.GONE
+//            val noSslIco: ImageView = (TabInfo.activity as TabActivity).noSslIcon
+//            noSslIco.visibility = View.GONE
+//            val homeIco: ImageView = (TabInfo.activity as TabActivity).homeIcon
+//            homeIco.visibility = View.GONE
+//            val proxyIco: ImageView = (TabInfo.activity as TabActivity).proxyIcon
+//            proxyIco.visibility = View.GONE
             val btm_nav: BottomNavigationView = (TabInfo.activity as TabActivity).bottom_navigation
 
         } else if (webView.url.startsWith("https://nebezb.com/floppybird/")) {
             address.setText("")
             address.hint = "Game Mode"
-            val sslIco: ImageView = (TabInfo.activity as TabActivity).sslIcon
-            sslIco.visibility = View.GONE
-            val noSslIco: ImageView = (TabInfo.activity as TabActivity).noSslIcon
-            noSslIco.visibility = View.GONE
-            val homeIco: ImageView = (TabInfo.activity as TabActivity).homeIcon
-            homeIco.visibility = View.GONE
-            val proxyIco: ImageView = (TabInfo.activity as TabActivity).proxyIcon
-            proxyIco.visibility = View.GONE
+            val statusIcon: ImageView = (TabInfo.activity as TabActivity).statusIcon
+            statusIcon.setImageResource(R.drawable.ic_game)
+            statusIcon.visibility = View.VISIBLE
+//            val sslIco: ImageView = (TabInfo.activity as TabActivity).sslIcon
+//            sslIco.visibility = View.GONE
+//            val noSslIco: ImageView = (TabInfo.activity as TabActivity).noSslIcon
+//            noSslIco.visibility = View.GONE
+//            val homeIco: ImageView = (TabInfo.activity as TabActivity).homeIcon
+//            homeIco.visibility = View.GONE
+//            val proxyIco: ImageView = (TabInfo.activity as TabActivity).proxyIcon
+//            proxyIco.visibility = View.GONE
             val btm_nav: BottomNavigationView = (TabInfo.activity as TabActivity).bottom_navigation
 
         } else if(webView.url.startsWith("https")) {
-
-            val sslIco: ImageView = (TabInfo.activity as TabActivity).sslIcon
-            sslIco.visibility = View.VISIBLE
-            val noSslIco: ImageView = (TabInfo.activity as TabActivity).noSslIcon
-            noSslIco.visibility = View.GONE
-            val homeIco: ImageView = (TabInfo.activity as TabActivity).homeIcon
-            homeIco.visibility = View.GONE
-            val proxyIco: ImageView = (TabInfo.activity as TabActivity).proxyIcon
-            proxyIco.visibility = View.GONE
+            val statusIcon: ImageView = (TabInfo.activity as TabActivity).statusIcon
+            statusIcon.setImageResource(R.drawable.ic_lock)
+            statusIcon.visibility = View.VISIBLE
+//            val sslIco: ImageView = (TabInfo.activity as TabActivity).sslIcon
+//            sslIco.visibility = View.VISIBLE
+//            val noSslIco: ImageView = (TabInfo.activity as TabActivity).noSslIcon
+//            noSslIco.visibility = View.GONE
+//            val homeIco: ImageView = (TabInfo.activity as TabActivity).homeIcon
+//            homeIco.visibility = View.GONE
+//            val proxyIco: ImageView = (TabInfo.activity as TabActivity).proxyIcon
+//            proxyIco.visibility = View.GONE
             address.setText(webView.url.toString())
             val btm_nav: BottomNavigationView = (TabInfo.activity as TabActivity).bottom_navigation
 
         } else if(webView.url.startsWith("http")) {
             address.setText(webView.url.toString())
-            val sslIco: ImageView = (TabInfo.activity as TabActivity).sslIcon
-            sslIco.visibility = View.GONE
-            val noSslIco: ImageView = (TabInfo.activity as TabActivity).noSslIcon
-            noSslIco.visibility = View.VISIBLE
-            val homeIco: ImageView = (TabInfo.activity as TabActivity).homeIcon
-            homeIco.visibility = View.GONE
-            val proxyIco: ImageView = (TabInfo.activity as TabActivity).proxyIcon
-            proxyIco.visibility = View.GONE
+            val statusIcon: ImageView = (TabInfo.activity as TabActivity).statusIcon
+            statusIcon.setImageResource(R.drawable.ic_lock)
+            statusIcon.visibility = View.VISIBLE
+//            val sslIco: ImageView = (TabInfo.activity as TabActivity).sslIcon
+//            sslIco.visibility = View.GONE
+//            val noSslIco: ImageView = (TabInfo.activity as TabActivity).noSslIcon
+//            noSslIco.visibility = View.VISIBLE
+//            val homeIco: ImageView = (TabInfo.activity as TabActivity).homeIcon
+//            homeIco.visibility = View.GONE
+//            val proxyIco: ImageView = (TabInfo.activity as TabActivity).proxyIcon
+//            proxyIco.visibility = View.GONE
             val btm_nav: BottomNavigationView = (TabInfo.activity as TabActivity).bottom_navigation
         }
         else{
