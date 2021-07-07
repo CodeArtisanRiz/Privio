@@ -75,7 +75,7 @@ class WebView @JvmOverloads constructor(
 
     fun loadHome() {
         val preferences = PreferenceManager.getDefaultSharedPreferences(context)
-        loadUrl("https://winkrbr-home.web.app/home/")
+        loadUrl("https://winkbr-browser.web.app")
     }
 
 

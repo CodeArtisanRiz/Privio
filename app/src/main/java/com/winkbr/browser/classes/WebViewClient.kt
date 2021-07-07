@@ -27,11 +27,8 @@ class WebViewClient : android.webkit.WebViewClient() {
     override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
         super.onPageStarted(view, url, favicon)
 
-
-
         val webView = view as com.winkbr.browser.activity.WebView
         webView.progressBar?.isVisible = true
-
         webView.settings.builtInZoomControls = true
         webView.settings.displayZoomControls = false
         webView.settings.domStorageEnabled = true
@@ -42,9 +39,6 @@ class WebViewClient : android.webkit.WebViewClient() {
         val address: AutoCompleteTextView = (TabInfo.activity as TabActivity).address_bar
 
         val tabIco: TextView = (TabInfo.activity as TabActivity).tabCount
-//        val tabIco: TextView = findViewById(R.id.tabCount)
-//
-
 
 
         if (webView.url.startsWith("file")) {
@@ -52,7 +46,14 @@ class WebViewClient : android.webkit.WebViewClient() {
             address.hint = "Search or enter URL"
             address.isEnabled = true
         }
-        else if (webView.url.startsWith("https://winkrbr-home.web.app")) {
+//        else if (webView.url.startsWith("https://winkrbr-home.web.app")) {
+//            tabIco.visibility = View.GONE
+//            topImageView.visibility = View.VISIBLE
+//            address.setText("")
+//            address.hint = "Search or enter URL"
+//            address.isEnabled = true
+//        }
+        else if (webView.url.startsWith("https://winkbr-browser.web.app")) {
             tabIco.visibility = View.GONE
             topImageView.visibility = View.VISIBLE
             address.setText("")
@@ -119,32 +120,26 @@ class WebViewClient : android.webkit.WebViewClient() {
             address.hint = "Search or enter URL"
             val statusIcon: ImageView = (TabInfo.activity as TabActivity).statusIcon
             statusIcon.visibility = View.INVISIBLE
-//            val sslIco: ImageView = (TabInfo.activity as TabActivity).sslIcon
-//            sslIco.visibility = View.GONE
-//            val noSslIco: ImageView = (TabInfo.activity as TabActivity).noSslIcon
-//            noSslIco.visibility = View.GONE
-//            val homeIco: ImageView = (TabInfo.activity as TabActivity).homeIcon
-//            homeIco.visibility = View.GONE
-//            val proxyIco: ImageView = (TabInfo.activity as TabActivity).proxyIcon
-//            proxyIco.visibility = View.GONE
             val btm_nav: BottomNavigationView = (TabInfo.activity as TabActivity).bottom_navigation
 
         }
-        else if (webView.url.startsWith("https://winkrbr-home.web.app")) {
+//        else if (webView.url.startsWith("https://winkrbr-home.web.app")) {
+//
+//            address.setText("")
+//            address.hint = "Search or enter URL"
+//            val statusIcon: ImageView = (TabInfo.activity as TabActivity).statusIcon
+//            statusIcon.visibility = View.INVISIBLE
+//            statusIcon.setImageResource(R.drawable.ic_home)
+//            val btm_nav: BottomNavigationView = (TabInfo.activity as TabActivity).bottom_navigation
+//
+//        }
+        else if (webView.url.startsWith("https://winkbr-browser.web.app")) {
 
             address.setText("")
             address.hint = "Search or enter URL"
             val statusIcon: ImageView = (TabInfo.activity as TabActivity).statusIcon
             statusIcon.visibility = View.INVISIBLE
             statusIcon.setImageResource(R.drawable.ic_home)
-//            val sslIco: ImageView = (TabInfo.activity as TabActivity).sslIcon
-//            sslIco.visibility = View.GONE
-//            val noSslIco: ImageView = (TabInfo.activity as TabActivity).noSslIcon
-//            noSslIco.visibility = View.GONE
-//            val homeIco: ImageView = (TabInfo.activity as TabActivity).homeIcon
-//            homeIco.visibility = View.GONE
-//            val proxyIco: ImageView = (TabInfo.activity as TabActivity).proxyIcon
-//            proxyIco.visibility = View.GONE
             val btm_nav: BottomNavigationView = (TabInfo.activity as TabActivity).bottom_navigation
 
         } else if(webView.url.startsWith("http://13.127.225.49/")) {
@@ -153,15 +148,6 @@ class WebViewClient : android.webkit.WebViewClient() {
             val statusIcon: ImageView = (TabInfo.activity as TabActivity).statusIcon
             statusIcon.setImageResource(R.drawable.incognito)
             statusIcon.visibility = View.VISIBLE
-
-//            val sslIco: ImageView = (TabInfo.activity as TabActivity).sslIcon
-//            sslIco.visibility = View.GONE
-//            val noSslIco: ImageView = (TabInfo.activity as TabActivity).noSslIcon
-//            noSslIco.visibility = View.GONE
-//            val homeIco: ImageView = (TabInfo.activity as TabActivity).homeIcon
-//            homeIco.visibility = View.GONE
-//            val proxyIco: ImageView = (TabInfo.activity as TabActivity).proxyIcon
-//            proxyIco.visibility = View.VISIBLE
             val btm_nav: BottomNavigationView = (TabInfo.activity as TabActivity).bottom_navigation
 
         } else if (webView.url.startsWith("https://hczhcz.github.io/2048/20ez/")) {
@@ -170,14 +156,6 @@ class WebViewClient : android.webkit.WebViewClient() {
             val statusIcon: ImageView = (TabInfo.activity as TabActivity).statusIcon
             statusIcon.setImageResource(R.drawable.ic_game)
             statusIcon.visibility = View.VISIBLE
-//            val sslIco: ImageView = (TabInfo.activity as TabActivity).sslIcon
-//            sslIco.visibility = View.GONE
-//            val noSslIco: ImageView = (TabInfo.activity as TabActivity).noSslIcon
-//            noSslIco.visibility = View.GONE
-//            val homeIco: ImageView = (TabInfo.activity as TabActivity).homeIcon
-//            homeIco.visibility = View.GONE
-//            val proxyIco: ImageView = (TabInfo.activity as TabActivity).proxyIcon
-//            proxyIco.visibility = View.GONE
             val btm_nav: BottomNavigationView = (TabInfo.activity as TabActivity).bottom_navigation
 
         } else if (webView.url.startsWith("https://doodlecricket.github.io/")) {
@@ -186,14 +164,6 @@ class WebViewClient : android.webkit.WebViewClient() {
             val statusIcon: ImageView = (TabInfo.activity as TabActivity).statusIcon
             statusIcon.setImageResource(R.drawable.ic_game)
             statusIcon.visibility = View.VISIBLE
-//            val sslIco: ImageView = (TabInfo.activity as TabActivity).sslIcon
-//            sslIco.visibility = View.GONE
-//            val noSslIco: ImageView = (TabInfo.activity as TabActivity).noSslIcon
-//            noSslIco.visibility = View.GONE
-//            val homeIco: ImageView = (TabInfo.activity as TabActivity).homeIcon
-//            homeIco.visibility = View.GONE
-//            val proxyIco: ImageView = (TabInfo.activity as TabActivity).proxyIcon
-//            proxyIco.visibility = View.GONE
             val btm_nav: BottomNavigationView = (TabInfo.activity as TabActivity).bottom_navigation
 
         } else if (webView.url.startsWith("https://hextris.io")) {
@@ -202,14 +172,6 @@ class WebViewClient : android.webkit.WebViewClient() {
             val statusIcon: ImageView = (TabInfo.activity as TabActivity).statusIcon
             statusIcon.setImageResource(R.drawable.ic_game)
             statusIcon.visibility = View.VISIBLE
-//            val sslIco: ImageView = (TabInfo.activity as TabActivity).sslIcon
-//            sslIco.visibility = View.GONE
-//            val noSslIco: ImageView = (TabInfo.activity as TabActivity).noSslIcon
-//            noSslIco.visibility = View.GONE
-//            val homeIco: ImageView = (TabInfo.activity as TabActivity).homeIcon
-//            homeIco.visibility = View.GONE
-//            val proxyIco: ImageView = (TabInfo.activity as TabActivity).proxyIcon
-//            proxyIco.visibility = View.GONE
             val btm_nav: BottomNavigationView = (TabInfo.activity as TabActivity).bottom_navigation
 
         } else if (webView.url.startsWith("https://nebezb.com/floppybird/")) {
@@ -218,28 +180,12 @@ class WebViewClient : android.webkit.WebViewClient() {
             val statusIcon: ImageView = (TabInfo.activity as TabActivity).statusIcon
             statusIcon.setImageResource(R.drawable.ic_game)
             statusIcon.visibility = View.VISIBLE
-//            val sslIco: ImageView = (TabInfo.activity as TabActivity).sslIcon
-//            sslIco.visibility = View.GONE
-//            val noSslIco: ImageView = (TabInfo.activity as TabActivity).noSslIcon
-//            noSslIco.visibility = View.GONE
-//            val homeIco: ImageView = (TabInfo.activity as TabActivity).homeIcon
-//            homeIco.visibility = View.GONE
-//            val proxyIco: ImageView = (TabInfo.activity as TabActivity).proxyIcon
-//            proxyIco.visibility = View.GONE
             val btm_nav: BottomNavigationView = (TabInfo.activity as TabActivity).bottom_navigation
 
         } else if(webView.url.startsWith("https")) {
             val statusIcon: ImageView = (TabInfo.activity as TabActivity).statusIcon
             statusIcon.setImageResource(R.drawable.ic_lock)
             statusIcon.visibility = View.VISIBLE
-//            val sslIco: ImageView = (TabInfo.activity as TabActivity).sslIcon
-//            sslIco.visibility = View.VISIBLE
-//            val noSslIco: ImageView = (TabInfo.activity as TabActivity).noSslIcon
-//            noSslIco.visibility = View.GONE
-//            val homeIco: ImageView = (TabInfo.activity as TabActivity).homeIcon
-//            homeIco.visibility = View.GONE
-//            val proxyIco: ImageView = (TabInfo.activity as TabActivity).proxyIcon
-//            proxyIco.visibility = View.GONE
             address.setText(webView.url.toString())
             val btm_nav: BottomNavigationView = (TabInfo.activity as TabActivity).bottom_navigation
 
@@ -248,14 +194,6 @@ class WebViewClient : android.webkit.WebViewClient() {
             val statusIcon: ImageView = (TabInfo.activity as TabActivity).statusIcon
             statusIcon.setImageResource(R.drawable.ic_lock)
             statusIcon.visibility = View.VISIBLE
-//            val sslIco: ImageView = (TabInfo.activity as TabActivity).sslIcon
-//            sslIco.visibility = View.GONE
-//            val noSslIco: ImageView = (TabInfo.activity as TabActivity).noSslIcon
-//            noSslIco.visibility = View.VISIBLE
-//            val homeIco: ImageView = (TabInfo.activity as TabActivity).homeIcon
-//            homeIco.visibility = View.GONE
-//            val proxyIco: ImageView = (TabInfo.activity as TabActivity).proxyIcon
-//            proxyIco.visibility = View.GONE
             val btm_nav: BottomNavigationView = (TabInfo.activity as TabActivity).bottom_navigation
         }
         else{
@@ -268,7 +206,8 @@ class WebViewClient : android.webkit.WebViewClient() {
         val history = History(null, webView.title, webView.url, System.currentTimeMillis())
         when {
             webView.url.startsWith("file") -> {}
-            webView.url.startsWith("https://winkrbr-home.web.app") -> {}
+//            webView.url.startsWith("https://winkrbr-home.web.app") -> {}
+            webView.url.startsWith("https://winkbr-browser.web.app") -> {}
             webView.url.startsWith("http://13.127.225.49") -> {}
             webView.url.startsWith("https://hczhcz.github.io/2048/20ez/") -> {}
             webView.url.startsWith("https://doodlecricket.github.io/") -> {}

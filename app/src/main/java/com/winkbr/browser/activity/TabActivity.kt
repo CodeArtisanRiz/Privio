@@ -141,7 +141,7 @@ class TabActivity : AppCompatActivity() {
                 }
                 R.id.nav_menu -> {
                     when {
-                        (web_view.url.toString().startsWith("https://winkrbr-home.web.app")) -> {
+                        (web_view.url.toString().startsWith("https://winkbr-browser.web.app")) -> {
                             val bottomSheetDialog = BottomSheetDialog(
                                 this,
                                 R.style.BottomSheetDialogTheme
@@ -185,7 +185,7 @@ class TabActivity : AppCompatActivity() {
 //                    New Private Tab
                             bottomSheetView.findViewById<View>(R.id.new_private_tab).setOnClickListener {
 
-                                        addProxyTab()
+                                addProxyTab()
 
                                 bottomSheetDialog.dismiss()
                             }
@@ -193,7 +193,7 @@ class TabActivity : AppCompatActivity() {
                             bottomSheetView.findViewById<View>(R.id.add_bookmark)
                                 .setOnClickListener {
                                     when {
-                                        web_view.url.startsWith("https://winkrbr-home.web.app") -> {
+                                        web_view.url.startsWith("https://winkbr-browser.web.app") -> {
                                         }
 
                                         web_view.url.startsWith("http") -> {
@@ -268,7 +268,7 @@ class TabActivity : AppCompatActivity() {
                                 .setOnClickListener {
                                     val sharingUrl: String = web_view.url.toString()
                                     when {
-                                        web_view.url.startsWith("https://winkrbr-home.web.app") -> {
+                                        web_view.url.startsWith("https://winkbr-browser.web.app") -> {
                                         }
                                         else -> {
 //                              find in page Dialog
@@ -282,7 +282,7 @@ class TabActivity : AppCompatActivity() {
                             bottomSheetView.findViewById<View>(R.id.page_source)
                                 .setOnClickListener {
                                     when {
-                                        web_view.url.startsWith("https://winkrbr-home.web.app") -> {
+                                        web_view.url.startsWith("https://winkbr-browser.web.app") -> {
                                         }
                                         web_view.url.startsWith("http") -> {
                                             web_view.settings.useWideViewPort = false
@@ -296,7 +296,7 @@ class TabActivity : AppCompatActivity() {
                             bottomSheetView.findViewById<View>(R.id.print).setOnClickListener {
                                 when {
 
-                                    web_view.url.startsWith("https://winkrbr-home.web.app") -> {
+                                    web_view.url.startsWith("https://winkbr-browser.web.app") -> {
                                         bottomSheetDialog.dismiss()
                                     }
                                     web_view.url.startsWith("http") -> {
@@ -329,7 +329,7 @@ class TabActivity : AppCompatActivity() {
                             bottomSheetView.findViewById<View>(R.id.desktop_site)
                                 .setOnClickListener {
                                     when {
-                                        web_view.url.startsWith("https://winkrbr-home.web.app") -> {
+                                        web_view.url.startsWith("https://winkbr-browser.web.app") -> {
 
                                         }
                                         web_view.url.startsWith("http") -> {
@@ -433,7 +433,7 @@ class TabActivity : AppCompatActivity() {
 //                    Reload
                             bottomSheetView.findViewById<View>(R.id.reload).setOnClickListener {
                                 when {
-                                    web_view.url.startsWith("https://winkrbr-home.web.app") -> {
+                                    web_view.url.startsWith("https://winkbr-browser.web.app") -> {
                                         makeText(
                                             this@TabActivity,
                                             "Homepage",
@@ -454,7 +454,7 @@ class TabActivity : AppCompatActivity() {
 
                                 val sharingUrl: String = web_view.url.toString()
 
-                                if (web_view.url.startsWith("https://winkrbr-home.web.app")) {
+                                if (web_view.url.startsWith("https://winkbr-browser.web.app")) {
 
                                 } else if (web_view.url.startsWith("http")) {
                                     val intent = Intent(Intent.ACTION_SEND)
@@ -529,7 +529,7 @@ class TabActivity : AppCompatActivity() {
                             bottomSheetView.findViewById<View>(R.id.add_bookmark)
                                 .setOnClickListener {
                                     when {
-                                        web_view.url.startsWith("https://winkrbr-home.web.app") -> {
+                                        web_view.url.startsWith("https://winkbr-browser.web.app") -> {
                                         }
                                         web_view.url.startsWith("https://hczhcz.github.io/2048/20ez/") -> {
                                         }
@@ -613,7 +613,7 @@ class TabActivity : AppCompatActivity() {
                                 .setOnClickListener {
                                     val sharingUrl: String = web_view.url.toString()
                                     when {
-                                        web_view.url.startsWith("https://winkrbr-home.web.app") -> {
+                                        web_view.url.startsWith("https://winkbr-browser.web.app") -> {
                                         }
                                         web_view.url.startsWith("https://hczhcz.github.io/2048/20ez/") -> {
                                         }
@@ -635,7 +635,7 @@ class TabActivity : AppCompatActivity() {
                             bottomSheetView.findViewById<View>(R.id.page_source)
                                 .setOnClickListener {
                                     when {
-                                        web_view.url.startsWith("https://winkrbr-home.web.app") -> {
+                                        web_view.url.startsWith("https://winkbr-browser.web.app") -> {
                                         }
                                         web_view.url.startsWith("https://hczhcz.github.io/2048/20ez/") -> {
                                         }
@@ -656,7 +656,7 @@ class TabActivity : AppCompatActivity() {
 //                    Print
                             bottomSheetView.findViewById<View>(R.id.print).setOnClickListener {
                                 when {
-                                    web_view.url.startsWith("https://winkrbr-home.web.app") -> {
+                                    web_view.url.startsWith("https://winkbr-browser.web.app") -> {
 //                                        bottomSheetDialog.dismiss()
                                     }
                                     web_view.url.startsWith("https://hczhcz.github.io/2048/20ez/") -> {
@@ -698,7 +698,7 @@ class TabActivity : AppCompatActivity() {
                             bottomSheetView.findViewById<View>(R.id.desktop_site)
                                 .setOnClickListener {
                                     when {
-                                        web_view.url.startsWith("https://winkrbr-home.web.app") -> {
+                                        web_view.url.startsWith("https://winkbr-browser.web.app") -> {
                                         }
                                         web_view.url.startsWith("https://hczhcz.github.io/2048/20ez/") -> {
                                         }
@@ -808,7 +808,7 @@ class TabActivity : AppCompatActivity() {
 //                    Reload
                             bottomSheetView.findViewById<View>(R.id.reload).setOnClickListener {
                                 when {
-                                    web_view.url.startsWith("https://winkrbr-home.web.app") -> {
+                                    web_view.url.startsWith("https://winkbr-browser.web.app") -> {
                                         makeText(
                                             this@TabActivity,
                                             "Homepage",
@@ -829,7 +829,7 @@ class TabActivity : AppCompatActivity() {
 
                                 val sharingUrl: String = web_view.url.toString()
 
-                                if (web_view.url.startsWith("https://winkrbr-home.web.app")) {
+                                if (web_view.url.startsWith("https://winkbr-browser.web.app")) {
                                 } else if (web_view.url.startsWith("https://hczhcz.github.io/2048/20ez/")) {
                                 } else if (web_view.url.startsWith("https://doodlecricket.github.io/")) {
                                 } else if (web_view.url.startsWith("https://hextris.io")) {
@@ -907,7 +907,7 @@ class TabActivity : AppCompatActivity() {
                             bottomSheetView.findViewById<View>(R.id.add_bookmark)
                                 .setOnClickListener {
                                     when {
-                                        web_view.url.startsWith("https://winkrbr-home.web.app") -> {
+                                        web_view.url.startsWith("https://winkbr-browser.web.app") -> {
                                         }
                                         web_view.url.startsWith("https://hczhcz.github.io/2048/20ez/") -> {
                                         }
@@ -991,7 +991,7 @@ class TabActivity : AppCompatActivity() {
                                 .setOnClickListener {
                                     val sharingUrl: String = web_view.url.toString()
                                     when {
-                                        web_view.url.startsWith("https://winkrbr-home.web.app") -> {
+                                        web_view.url.startsWith("https://winkbr-browser.web.app") -> {
                                         }
                                         web_view.url.startsWith("https://hczhcz.github.io/2048/20ez/") -> {
                                         }
@@ -1013,7 +1013,7 @@ class TabActivity : AppCompatActivity() {
                             bottomSheetView.findViewById<View>(R.id.page_source)
                                 .setOnClickListener {
                                     when {
-                                        web_view.url.startsWith("https://winkrbr-home.web.app") -> {
+                                        web_view.url.startsWith("https://winkbr-browser.web.app") -> {
                                         }
                                         web_view.url.startsWith("https://hczhcz.github.io/2048/20ez/") -> {
                                         }
@@ -1034,7 +1034,7 @@ class TabActivity : AppCompatActivity() {
 //                    Print
                             bottomSheetView.findViewById<View>(R.id.print).setOnClickListener {
                                 when {
-                                    web_view.url.startsWith("https://winkrbr-home.web.app") -> {
+                                    web_view.url.startsWith("https://winkbr-browser.web.app") -> {
 //                                        bottomSheetDialog.dismiss()
                                     }
                                     web_view.url.startsWith("https://hczhcz.github.io/2048/20ez/") -> {
@@ -1076,7 +1076,7 @@ class TabActivity : AppCompatActivity() {
                             bottomSheetView.findViewById<View>(R.id.desktop_site)
                                 .setOnClickListener {
                                     when {
-                                        web_view.url.startsWith("https://winkrbr-home.web.app") -> {
+                                        web_view.url.startsWith("https://winkbr-browser.web.app") -> {
                                         }
                                         web_view.url.startsWith("https://hczhcz.github.io/2048/20ez/") -> {
                                         }
@@ -1186,7 +1186,7 @@ class TabActivity : AppCompatActivity() {
 //                    Reload
                             bottomSheetView.findViewById<View>(R.id.reload).setOnClickListener {
                                 when {
-                                    web_view.url.startsWith("https://winkrbr-home.web.app") -> {
+                                    web_view.url.startsWith("https://winkbr-browser.web.app") -> {
                                         makeText(
                                             this@TabActivity,
                                             "Homepage",
@@ -1207,7 +1207,7 @@ class TabActivity : AppCompatActivity() {
 
                                 val sharingUrl: String = web_view.url.toString()
 
-                                if (web_view.url.startsWith("https://winkrbr-home.web.app")) {
+                                if (web_view.url.startsWith("https://winkbr-browser.web.app")) {
                                 } else if (web_view.url.startsWith("https://hczhcz.github.io/2048/20ez/")) {
                                 } else if (web_view.url.startsWith("https://doodlecricket.github.io/")) {
                                 } else if (web_view.url.startsWith("https://hextris.io")) {
@@ -1284,7 +1284,7 @@ class TabActivity : AppCompatActivity() {
                             bottomSheetView.findViewById<View>(R.id.add_bookmark)
                                 .setOnClickListener {
                                     when {
-                                        web_view.url.startsWith("https://winkrbr-home.web.app") -> {
+                                        web_view.url.startsWith("https://winkbr-browser.web.app") -> {
                                         }
                                         web_view.url.startsWith("https://hczhcz.github.io/2048/20ez/") -> {
                                         }
@@ -1368,7 +1368,7 @@ class TabActivity : AppCompatActivity() {
                                 .setOnClickListener {
                                     val sharingUrl: String = web_view.url.toString()
                                     when {
-                                        web_view.url.startsWith("https://winkrbr-home.web.app") -> {
+                                        web_view.url.startsWith("https://winkbr-browser.web.app") -> {
                                         }
                                         web_view.url.startsWith("https://hczhcz.github.io/2048/20ez/") -> {
                                         }
@@ -1390,7 +1390,7 @@ class TabActivity : AppCompatActivity() {
                             bottomSheetView.findViewById<View>(R.id.page_source)
                                 .setOnClickListener {
                                     when {
-                                        web_view.url.startsWith("https://winkrbr-home.web.app") -> {
+                                        web_view.url.startsWith("https://winkbr-browser.web.app") -> {
                                         }
                                         web_view.url.startsWith("https://hczhcz.github.io/2048/20ez/") -> {
                                         }
@@ -1411,7 +1411,7 @@ class TabActivity : AppCompatActivity() {
 //                    Print
                             bottomSheetView.findViewById<View>(R.id.print).setOnClickListener {
                                 when {
-                                    web_view.url.startsWith("https://winkrbr-home.web.app") -> {
+                                    web_view.url.startsWith("https://winkbr-browser.web.app") -> {
 //                                        bottomSheetDialog.dismiss()
                                     }
                                     web_view.url.startsWith("https://hczhcz.github.io/2048/20ez/") -> {
@@ -1453,7 +1453,7 @@ class TabActivity : AppCompatActivity() {
                             bottomSheetView.findViewById<View>(R.id.desktop_site)
                                 .setOnClickListener {
                                     when {
-                                        web_view.url.startsWith("https://winkrbr-home.web.app") -> {
+                                        web_view.url.startsWith("https://winkbr-browser.web.app") -> {
                                         }
                                         web_view.url.startsWith("https://hczhcz.github.io/2048/20ez/") -> {
                                         }
@@ -1563,7 +1563,7 @@ class TabActivity : AppCompatActivity() {
 //                    Reload
                             bottomSheetView.findViewById<View>(R.id.reload).setOnClickListener {
                                 when {
-                                    web_view.url.startsWith("https://winkrbr-home.web.app") -> {
+                                    web_view.url.startsWith("https://winkbr-browser.web.app") -> {
                                         makeText(
                                             this@TabActivity,
                                             "Homepage",
@@ -1584,7 +1584,7 @@ class TabActivity : AppCompatActivity() {
 
                                 val sharingUrl: String = web_view.url.toString()
 
-                                if (web_view.url.startsWith("https://winkrbr-home.web.app")) {
+                                if (web_view.url.startsWith("https://winkbr-browser.web.app")) {
                                 } else if (web_view.url.startsWith("https://hczhcz.github.io/2048/20ez/")) {
                                 } else if (web_view.url.startsWith("https://doodlecricket.github.io/")) {
                                 } else if (web_view.url.startsWith("https://hextris.io")) {
@@ -1661,7 +1661,7 @@ class TabActivity : AppCompatActivity() {
                             bottomSheetView.findViewById<View>(R.id.add_bookmark)
                                 .setOnClickListener {
                                     when {
-                                        web_view.url.startsWith("https://winkrbr-home.web.app") -> {
+                                        web_view.url.startsWith("https://winkbr-browser.web.app") -> {
                                         }
                                         web_view.url.startsWith("https://hczhcz.github.io/2048/20ez/") -> {
                                         }
@@ -1745,7 +1745,7 @@ class TabActivity : AppCompatActivity() {
                                 .setOnClickListener {
                                     val sharingUrl: String = web_view.url.toString()
                                     when {
-                                        web_view.url.startsWith("https://winkrbr-home.web.app") -> {
+                                        web_view.url.startsWith("https://winkbr-browser.web.app") -> {
                                         }
                                         web_view.url.startsWith("https://hczhcz.github.io/2048/20ez/") -> {
                                         }
@@ -1767,7 +1767,7 @@ class TabActivity : AppCompatActivity() {
                             bottomSheetView.findViewById<View>(R.id.page_source)
                                 .setOnClickListener {
                                     when {
-                                        web_view.url.startsWith("https://winkrbr-home.web.app") -> {
+                                        web_view.url.startsWith("https://winkbr-browser.web.app") -> {
                                         }
                                         web_view.url.startsWith("https://hczhcz.github.io/2048/20ez/") -> {
                                         }
@@ -1788,7 +1788,7 @@ class TabActivity : AppCompatActivity() {
 //                    Print
                             bottomSheetView.findViewById<View>(R.id.print).setOnClickListener {
                                 when {
-                                    web_view.url.startsWith("https://winkrbr-home.web.app") -> {
+                                    web_view.url.startsWith("https://winkbr-browser.web.app") -> {
 //                                        bottomSheetDialog.dismiss()
                                     }
                                     web_view.url.startsWith("https://hczhcz.github.io/2048/20ez/") -> {
@@ -1830,7 +1830,7 @@ class TabActivity : AppCompatActivity() {
                             bottomSheetView.findViewById<View>(R.id.desktop_site)
                                 .setOnClickListener {
                                     when {
-                                        web_view.url.startsWith("https://winkrbr-home.web.app") -> {
+                                        web_view.url.startsWith("https://winkbr-browser.web.app") -> {
                                         }
                                         web_view.url.startsWith("https://hczhcz.github.io/2048/20ez/") -> {
                                         }
@@ -1940,7 +1940,7 @@ class TabActivity : AppCompatActivity() {
 //                    Reload
                             bottomSheetView.findViewById<View>(R.id.reload).setOnClickListener {
                                 when {
-                                    web_view.url.startsWith("https://winkrbr-home.web.app") -> {
+                                    web_view.url.startsWith("https://winkbr-browser.web.app") -> {
                                         makeText(
                                             this@TabActivity,
                                             "Homepage",
@@ -1961,7 +1961,7 @@ class TabActivity : AppCompatActivity() {
 
                                 val sharingUrl: String = web_view.url.toString()
 
-                                if (web_view.url.startsWith("https://winkrbr-home.web.app")) {
+                                if (web_view.url.startsWith("https://winkbr-browser.web.app")) {
                                 } else if (web_view.url.startsWith("https://hczhcz.github.io/2048/20ez/")) {
                                 } else if (web_view.url.startsWith("https://doodlecricket.github.io/")) {
                                 } else if (web_view.url.startsWith("https://hextris.io")) {
@@ -2118,7 +2118,7 @@ class TabActivity : AppCompatActivity() {
                                 .setOnClickListener {
                                     val sharingUrl: String = web_view.url.toString()
                                     when {
-                                        web_view.url.startsWith("https://winkrbr-home.web.app") -> {
+                                        web_view.url.startsWith("https://winkbr-browser.web.app") -> {
                                             makeText(
                                                 this@TabActivity,
                                                 "Homepage",
@@ -2139,7 +2139,7 @@ class TabActivity : AppCompatActivity() {
                             bottomSheetView.findViewById<View>(R.id.page_source)
                                 .setOnClickListener {
                                     when {
-                                        web_view.url.startsWith("https://winkrbr-home.web.app") -> {
+                                        web_view.url.startsWith("https://winkbr-browser.web.app") -> {
                                             makeText(
                                                 this@TabActivity,
                                                 "Homepage",
@@ -2159,7 +2159,7 @@ class TabActivity : AppCompatActivity() {
                             bottomSheetView.findViewById<View>(R.id.print).setOnClickListener {
                                 when {
 
-                                    web_view.url.startsWith("https://winkrbr-home.web.app") -> {
+                                    web_view.url.startsWith("https://winkbr-browser.web.app") -> {
                                         makeText(
                                             this@TabActivity,
                                             "Homepage",
@@ -2198,7 +2198,7 @@ class TabActivity : AppCompatActivity() {
                             bottomSheetView.findViewById<View>(R.id.desktop_site)
                                 .setOnClickListener {
                                     when {
-                                        web_view.url.startsWith("https://winkrbr-home.web.app") -> {
+                                        web_view.url.startsWith("https://winkbr-browser.web.app") -> {
                                             makeText(
                                                 this@TabActivity,
                                                 "Homepage",
@@ -2307,7 +2307,7 @@ class TabActivity : AppCompatActivity() {
 //                    Reload
                             bottomSheetView.findViewById<View>(R.id.reload).setOnClickListener {
                                 when {
-                                    web_view.url.startsWith("https://winkrbr-home.web.app") -> {
+                                    web_view.url.startsWith("https://winkbr-browser.web.app") -> {
                                         makeText(
                                             this@TabActivity,
                                             "Homepage",
@@ -2327,7 +2327,7 @@ class TabActivity : AppCompatActivity() {
 
 
                                 val sharingUrl: String = web_view.url.toString()
-                                if (web_view.url.startsWith("https://winkrbr-home.web.app")) {
+                                if (web_view.url.startsWith("https://winkbr-browser.web.app")) {
                                 } else if (web_view.url.startsWith("http://13.127.225.49/")) {
                                 } else if (web_view.url.startsWith("https://hczhcz.github.io/2048/20ez/")) {
                                 } else if (web_view.url.startsWith("https://doodlecricket.github.io/")) {
@@ -2376,21 +2376,25 @@ class TabActivity : AppCompatActivity() {
                     }
 
                 }
-                R.id.nav_reload -> {
-                    when {
-                        web_view.url.startsWith("https://winkrbr-home.web.app") -> {
-                            makeText(
-                                this@TabActivity,
-                                "Homepage",
-                                Toast.LENGTH_SHORT
-                            )
-                                .show()
-                        }
-                        web_view.url.startsWith("http") -> {
-                            reloadCurrentTab()
-                        }
+                R.id.nav_news -> {
+//                    R.id.nav_reload -> {
+//                    when {
+//                        web_view.url.startsWith("https://winkbr-browser.web.app") -> {
+//                            makeText(
+//                                this@TabActivity,
+//                                "Homepage",
+//                                Toast.LENGTH_SHORT
+//                            )
+//                                .show()
+//                        }
+//                        web_view.url.startsWith("http") -> {
+//                            reloadCurrentTab()
+//                        }
+//
+//                    }
 
-                    }
+                    val intent = Intent(this, NewsActivity::class.java)
+                    startActivity(intent)
 
                     return@setOnNavigationItemSelectedListener true
                 }
@@ -2415,12 +2419,6 @@ class TabActivity : AppCompatActivity() {
             run {
                 if (view.hasFocus()) {
                     collapseToolbar()
-//                    disableToolBarScrolling()
-
-
-
-//                    toolbar?.
-
                 } else if (!view.hasFocus()) {
                     hideKeyboard(view)
                 } else {
@@ -2611,6 +2609,8 @@ class TabActivity : AppCompatActivity() {
         imgView = findViewById(R.id.backgroundImg)
         Glide.with(this)
             .load(bgImg)
+            .placeholder(R.drawable.temporary)
+            .error(R.drawable.temporary)
             .fitCenter()
             .centerCrop()
             .diskCacheStrategy(DiskCacheStrategy.NONE)
@@ -2643,3 +2643,4 @@ class TabActivity : AppCompatActivity() {
 
 
 }
+
