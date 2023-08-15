@@ -50,7 +50,7 @@
                 <AutoCompleteTextView
                     android:id="@+id/address_bar"
                     android:layout_width="match_parent"
-                    android:layout_height="35dp"
+                    android:layout_height="45dp"
                     android:background="@drawable/search_bar_background"
                     android:hint="@string/hint"
                     android:imeOptions="actionSearch"

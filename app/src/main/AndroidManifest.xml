@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="com.winkbr.browser">
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -19,29 +22,30 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
-        <activity android:name=".activity.AcActivity"/>
-        <activity android:name=".activity.AboutActivity" /> <!-- <activity android:name=".activity.CreditDetailsActivity" -->
+        <activity android:name="com.t3g.privio.activity.AcActivity"/>
+        <activity android:name="com.t3g.privio.activity.AboutActivity" />
+        <!-- <activity android:name=".activity.CreditDetailsActivity" -->
         <!-- android:theme="@style/Theme.AppCompat.Light" /> -->
         <activity
-            android:name=".activity.CreditsActivity"
+            android:name="com.t3g.privio.activity.CreditsActivity"
             android:theme="@style/Theme.AppCompat.Light" />
         <activity
-            android:name=".activity.BookmarkActivity"
+            android:name="com.t3g.privio.activity.BookmarkActivity"
             android:theme="@style/Theme.AppCompat.Light" />
         <activity
-            android:name=".activity.SettingsActivity"
+            android:name="com.t3g.privio.activity.SettingsActivity"
             android:label="@string/title_activity_settings" />
-        <activity android:name=".activity.TabListActivity" />
-        <activity android:name=".activity.DownloadActivity" />
-        <activity android:name=".activity.HistoryActivity" />
-        <activity android:name=".activity.WebViewActivity" />
-        <activity android:name=".activity.NewsActivity" />
-        <activity android:name=".activity.TabActivity">
+        <activity android:name="com.t3g.privio.activity.TabListActivity" />
+        <activity android:name="com.t3g.privio.activity.DownloadActivity" />
+        <activity android:name="com.t3g.privio.activity.HistoryActivity" />
+        <activity android:name="com.t3g.privio.activity.WebViewActivity" />
+        <activity android:name="com.t3g.privio.activity.NewsActivity" />
+        <activity android:name="com.t3g.privio.activity.TabActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.VIEW" />

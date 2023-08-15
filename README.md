@@ -1,2 +1,2 @@
-# WinkBr
+# Privio
  Android Browser with Proxy.
