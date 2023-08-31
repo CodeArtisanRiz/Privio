@@ -27,8 +27,8 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
-        <activity android:name="com.t3g.privio.activity.AcActivity"/>
-        <activity android:name="com.t3g.privio.activity.AboutActivity" />
+<!--        <activity android:name="com.t3g.privio.activity.AcActivity"/>-->
+<!--        <activity android:name="com.t3g.privio.activity.AboutActivity" />-->
         <!-- <activity android:name=".activity.CreditDetailsActivity" -->
         <!-- android:theme="@style/Theme.AppCompat.Light" /> -->
         <activity
@@ -45,7 +45,8 @@
         <activity android:name="com.t3g.privio.activity.HistoryActivity" />
         <activity android:name="com.t3g.privio.activity.WebViewActivity" />
         <activity android:name="com.t3g.privio.activity.NewsActivity" />
-        <activity android:name="com.t3g.privio.activity.TabActivity">
+        <activity android:name="com.t3g.privio.activity.TabActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.VIEW" />

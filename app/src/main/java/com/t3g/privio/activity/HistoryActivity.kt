@@ -14,8 +14,8 @@ import com.t3g.privio.adapter.HistoryAdapter
 import kotlinx.android.synthetic.main.activity_history.*
 
 class HistoryActivity : AppCompatActivity() {
-    lateinit var viewAdapter: HistoryAdapter
-    lateinit var viewManager: RecyclerView.LayoutManager
+    private lateinit var viewAdapter: HistoryAdapter
+    private lateinit var viewManager: RecyclerView.LayoutManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
