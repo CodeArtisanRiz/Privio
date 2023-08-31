@@ -31,9 +31,7 @@
 <!--        <activity android:name="com.t3g.privio.activity.AboutActivity" />-->
         <!-- <activity android:name=".activity.CreditDetailsActivity" -->
         <!-- android:theme="@style/Theme.AppCompat.Light" /> -->
-        <activity
-            android:name="com.t3g.privio.activity.CreditsActivity"
-            android:theme="@style/Theme.AppCompat.Light" />
+
         <activity
             android:name="com.t3g.privio.activity.BookmarkActivity"
             android:theme="@style/Theme.AppCompat.Light" />

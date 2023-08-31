@@ -27,7 +27,7 @@ class TabListActivity : AppCompatActivity() {
         supportActionBar?.setDisplayShowHomeEnabled(true)
 
         val linearLayoutManager = LinearLayoutManager(this)
-        val tabAdapter = TabAdapter()
+        val tabAdapter = TabAdapter(applicationContext)
         tabAdapter.activity = this
         recycler_view.apply {
             adapter = tabAdapter
@@ -48,7 +48,7 @@ class TabListActivity : AppCompatActivity() {
             }
             R.id.add_tab -> {
                 TabInfo.activity.addTab()
-                val address: AutoCompleteTextView = (TabInfo.activity as TabActivity).address_bar
+                val address: AutoCompleteTextView = TabInfo.activity.address_bar
                 address.setText("")
                 address.hint = "Search or enter URL"
                 finish()
@@ -56,7 +56,7 @@ class TabListActivity : AppCompatActivity() {
             }
             R.id.add_proxy_tab -> {
                 TabInfo.activity.addProxyTab()
-                val address: AutoCompleteTextView = (TabInfo.activity as TabActivity).address_bar
+                val address: AutoCompleteTextView = TabInfo.activity.address_bar
                 address.setText("")
                 address.hint = "VPN Mode"
                 address.isEnabled = false

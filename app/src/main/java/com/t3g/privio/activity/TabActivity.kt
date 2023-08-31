@@ -175,6 +175,7 @@ class TabActivity : AppCompatActivity() {
                                 .setOnClickListener {
                                     when {
                                         web_view.url!!.startsWith(getString(R.string.homePage)) -> {
+
                                         }
 
                                         web_view.url!!.startsWith("http") -> {
@@ -510,17 +511,6 @@ class TabActivity : AppCompatActivity() {
                             bottomSheetView.findViewById<View>(R.id.add_bookmark)
                                 .setOnClickListener {
                                     when {
-                                        web_view.url!!.startsWith(getString(R.string.homePage)) -> {
-                                        }
-                                        web_view.url!!.startsWith("https://hczhcz.github.io/2048/20ez/") -> {
-                                        }
-                                        web_view.url!!.startsWith("https://doodlecricket.github.io/") -> {
-                                        }
-                                        web_view.url!!.startsWith("https://hextris.io") -> {
-                                        }
-                                        web_view.url!!.startsWith("https://nebezb.com/floppybird/") -> {
-                                        }
-
 
                                         web_view.url!!.startsWith("http") -> {
                                             val message: String
@@ -593,39 +583,17 @@ class TabActivity : AppCompatActivity() {
                             bottomSheetView.findViewById<View>(R.id.find_in_page)
                                 .setOnClickListener {
                                     val sharingUrl: String = web_view.url!!.toString()
-                                    when {
-                                        web_view.url!!.startsWith(getString(R.string.homePage)) -> {
-                                        }
-                                        web_view.url!!.startsWith("https://hczhcz.github.io/2048/20ez/") -> {
-                                        }
-                                        web_view.url!!.startsWith("https://doodlecricket.github.io/") -> {
-                                        }
-                                        web_view.url!!.startsWith("https://hextris.io") -> {
-                                        }
-                                        web_view.url!!.startsWith("https://nebezb.com/floppybird/") -> {
-                                        }
-                                        else -> {
 //                              find in page Dialog
                                             web_view.showFindDialog("", true)
                                             bottomSheetDialog.setContentView(bottomSheetView)
                                             bottomSheetDialog.dismiss()
-                                        }
-                                    }
+
+
                                 }
 //                    View Source
                             bottomSheetView.findViewById<View>(R.id.page_source)
                                 .setOnClickListener {
                                     when {
-                                        web_view.url!!.startsWith(getString(R.string.homePage)) -> {
-                                        }
-                                        web_view.url!!.startsWith("https://hczhcz.github.io/2048/20ez/") -> {
-                                        }
-                                        web_view.url!!.startsWith("https://doodlecricket.github.io/") -> {
-                                        }
-                                        web_view.url!!.startsWith("https://hextris.io") -> {
-                                        }
-                                        web_view.url!!.startsWith("https://nebezb.com/floppybird/") -> {
-                                        }
                                         web_view.url!!.startsWith("http") -> {
                                             web_view.settings.useWideViewPort = false
                                             val sourceMobileUrl: String = web_view.url!!.toString()
@@ -639,14 +607,6 @@ class TabActivity : AppCompatActivity() {
                                 when {
                                     web_view.url!!.startsWith(getString(R.string.homePage)) -> {
 //                                        bottomSheetDialog.dismiss()
-                                    }
-                                    web_view.url!!.startsWith("https://hczhcz.github.io/2048/20ez/") -> {
-                                    }
-                                    web_view.url!!.startsWith("https://doodlecricket.github.io/") -> {
-                                    }
-                                    web_view.url!!.startsWith("https://hextris.io") -> {
-                                    }
-                                    web_view.url!!.startsWith("https://nebezb.com/floppybird/") -> {
                                     }
 
                                     web_view.url!!.startsWith("http") -> {

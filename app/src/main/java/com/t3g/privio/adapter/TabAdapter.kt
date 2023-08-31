@@ -1,5 +1,6 @@
 package com.t3g.privio.adapter
 
+import android.content.Context
 import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
@@ -15,7 +16,7 @@ import com.t3g.privio.tabs.TabInfo
 import kotlinx.android.synthetic.main.activity_tab.*
 import kotlinx.android.synthetic.main.view_tab_adapter.view.*
 
-class TabAdapter : RecyclerView.Adapter<TabAdapter.TabViewHolder>() {
+class TabAdapter(private val context: Context?) : RecyclerView.Adapter<TabAdapter.TabViewHolder>() {
     lateinit var activity: TabListActivity
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TabViewHolder {
@@ -30,53 +31,18 @@ class TabAdapter : RecyclerView.Adapter<TabAdapter.TabViewHolder>() {
 
 
         when {
-            webView.url!!.startsWith("file") -> {
+            webView.url!!.startsWith(context!!.getString(R.string.homePage)) -> {
                 holder.view.favicon.setImageBitmap(webView.favicon)
                 holder.view.title.text = "Privio - Home"
-                holder.view.address.text = "home"
+                holder.view.address.text = "Home"
             }
-//            webView.url!!.startsWith("https://winkrbr-home.web.app") -> {
-//                holder.view.favicon.setImageBitmap(webView.favicon)
-//                holder.view.title.text = "WINKBR - Home"
-//                holder.view.address.text = "home"
-//            }
-            webView.url!!.startsWith("https://winkbr-browser.web.app") -> {
-                holder.view.favicon.setImageBitmap(webView.favicon)
-                holder.view.title.text = "WINKBR - Home"
-                holder.view.address.text = "home"
-            }
+
 
             webView.url!!.startsWith("http://13.127.225.49/") -> {
                 holder.view.favicon.setImageBitmap(webView.favicon)
                 holder.view.title.text = "VPN Tab"
                 holder.view.address.text = ""
             }
-
-
-            webView.url!!.startsWith("https://hczhcz.github.io/2048/20ez/") -> {
-                holder.view.favicon.setImageBitmap(webView.favicon)
-                holder.view.title.text = webView.title
-                holder.view.address.text = ""
-            }
-            webView.url!!.startsWith("https://doodlecricket.github.io/") -> {
-                holder.view.favicon.setImageBitmap(webView.favicon)
-                holder.view.title.text = webView.title
-                holder.view.address.text = ""
-            }
-            webView.url!!.startsWith("https://hextris.io") -> {
-                holder.view.favicon.setImageBitmap(webView.favicon)
-                holder.view.title.text = webView.title
-                holder.view.address.text = ""
-            }
-            webView.url!!.startsWith("https://nebezb.com/floppybird/") -> {
-                holder.view.favicon.setImageBitmap(webView.favicon)
-                holder.view.title.text = webView.title
-                holder.view.address.text = ""
-            }
-
-
-
-
             else -> {
                 holder.view.favicon.setImageBitmap(webView.favicon)
                 holder.view.title.text = webView.title
@@ -96,8 +62,8 @@ class TabAdapter : RecyclerView.Adapter<TabAdapter.TabViewHolder>() {
             val index = holder.adapterPosition
             TabInfo.currentIndex = index
 
-            val address: AutoCompleteTextView = (TabInfo.activity as TabActivity).address_bar
-            val topImageView : ImageView = (TabInfo.activity as TabActivity).backgroundImg
+            val address: AutoCompleteTextView = TabInfo.activity.address_bar
+            val topImageView : ImageView = TabInfo.activity.backgroundImg
 
             if (webView.url!!.startsWith("file")) {
                 address.setText("")

@@ -35,7 +35,7 @@ class WebView @JvmOverloads constructor(
 
 
     init {
-        webViewClient = WebViewClient()
+        webViewClient = WebViewClient(context)
         webChromeClient = WebChromeClient()
 
         initSettings()
